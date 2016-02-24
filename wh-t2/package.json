@@ -1,0 +1,13 @@
+{
+    "name" : "WilliamHillTask2",
+    "version" : "0.1.0",
+    "author" : "Mihail Gaberov",
+    "private" : true,
+
+    "devDependencies" : {
+        "grunt" :                       "~0.4.0",
+        "grunt-contrib-uglify":         "*",
+        "grunt-contrib-watch":          "*",
+        "matchdep":                     "*"
+    }
+}
