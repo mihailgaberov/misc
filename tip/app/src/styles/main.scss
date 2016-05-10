@@ -1,0 +1,32 @@
+@import '_variables';
+@import '_header';
+
+$main-path: '../../../';
+
+#main-wrapper {
+  position: relative;
+  top: -16px;
+}
+
+#live-bets-area {
+  #pitch-live {
+    width: 100%;
+    background-image: url($main-path + 'img/live/pitch-live.svg');
+    background-size: cover;
+    height: 0;
+    padding: 0; /* reset */
+    padding-bottom: 47%;
+    border: thin dotted darkgrey;
+
+    .arrow {
+      position: relative;
+      top: -12px;
+      left: 12%;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 14px 13px 14px;
+      border-color: transparent transparent $live-pitch-background-color transparent;
+    }
+  }
+}

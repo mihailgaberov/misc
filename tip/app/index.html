@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, minimal-ui">
+  <link rel="stylesheet" href="dist/styles/main.min.css"/>
+</head>
+<body ng-app="tipico-mobile-sportsbook">
+<ul id="accountInfoMenu" class="tabs-nav">
+  <li class="tab-nav small-nav">
+    <a href="#">
+      <div>
+        <img class="left" src="../img/menu/menu-icon.svg" />
+        <img class="left nomargin" src="../img/menu/tipico-logo.svg" />
+      </div>
+    </a>
+  </li>
+  <li class="tab-nav"><a href="#"><div>My Account</div></a></li>
+  <li class="tab-nav"><a href="#"><div>My bets</div></a></li>
+  <li class="tab-nav noborder">
+    <a href="#">
+      <div>
+        <img class="right" src="../img/menu/menu-icon-blk.svg" />
+        <span class="right">Betslip</span>
+      </div>
+    </a>
+  </li>
+</ul>
+<ul id="sportTypeMenu" class="tabs-nav">
+  <li class="tab-nav small-nav">
+    <a href="#">
+      <div>
+        <img class="left pointLeft arrowed"
+             src="../img/menu/arrow-up-wht.svg" />
+        <span class="left">Back</span>
+      </div>
+    </a>
+  </li>
+  <li class="tab-nav big-nav noborder"><a href="#"><div>Live - Football</div></a></li>
+</ul>
+<ul id="subMenu" class="tabs-nav">
+  <li class="tab-nav">
+    <a href="#">
+      <div class="active">Odds</div>
+      </a>
+  </li>
+  <li class="tab-nav"><a href="#"><div>Live View</div></a></li>
+  <li class="tab-nav noborder"><a href="#"><div>Statistics</div></a></li>
+</ul>
+
+<section id="main-wrapper">
+  <div id="live-bets-area" ng-view></div>
+
+  <div id="live-markets-area">
+    <!--<tipico-live-markets markets=""></tipico-live-markets>-->
+  </div>
+</section>
+
+
+
+<script src="node_modules/angular/angular.js"></script>
+<!--<script src="//code.angularjs.org/1.5.0/angular.min.js"></script>-->
+<script src="node_modules/lodash/lodash.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>-->
+<script src="node_modules/angular-route/angular-route.min.js"></script>
+<!--<script src="//code.angularjs.org/1.5.0/angular-route.min.js"></script>-->
+
+<!--<script src="dist/scripts/main.min.js"></script>-->
+<script src="dist/scripts/main.js"></script>
+</body>
+</html>
