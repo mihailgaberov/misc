@@ -15,52 +15,45 @@ rl.question('Please enter a positive integer decimal number? ', (num) => {
 	rl.close();
 });
 
-/*function convertToBinary (n) {
-	if ((/[^0-9]/g.test(n)) || n == "") {
-		console.log("You must enter an integer decimal number!");
-		return 0;
-	}
-
-	n = parseInt(n);
-	let bin = n.toString(2);
-
-	return bin;
-}*/
-
 function getLongestBinaryGap (num) {
-	if ((/[^0-9]/g.test(num)) || num == "") {
+	if ((/[^0-9]/g.test(num)) || num === "") {
 		console.log("You must enter an integer decimal number!");
 		return 0;
 	}
 
 	num = parseInt(num);
-	let bin = num.toString(2);
-	let arrBinaries = bin.split('1');
+	var bin = num.toString(2);
+
+	var arrBinaries = bin.split('1');
 
 
 	if (arrBinaries === 'undefined') 
 		return;
 
-	let arrZeros = [];
-	let i = 0;
-	let len = arrBinaries.length;
+	var arrZeros = [];
+	var i = 0;
+	var len = arrBinaries.length;
+	var prev = '';
+	var curr = '';
+	var next = '';
 	while (i < len) {
-		if (arrBinaries[i] !== '') {
-			if (arrBinaries[i-1] !== 'undefined' && arrBinaries[i-1] === '' || (arrBinaries[i-1] && arrBinaries[i-1] !== '') ) {
-				if (arrBinaries[i+1] !== 'undefined' && arrBinaries[i+1] === '' || 
-					arrBinaries[i] && arrBinaries[i+1] && arrBinaries[i].length >= arrBinaries[i+1].length) {
-					arrZeros.push(arrBinaries[i]);
+		prev = arrBinaries[i-1];
+		curr = arrBinaries[i];
+		next = arrBinaries[i+1];
+
+		if (curr !== '' && arrBinaries.indexOf(curr) !== 0) {
+			if (prev !== 'undefined') {
+				if (next !== 'undefined' && next === '' || arrBinaries.indexOf(curr) !== (len-1)) {
+					arrZeros.push(curr);
+				}
 			}
 		}
+
+		i++;
 	}
+	var longest = arrZeros.reduce((prev, curr)  => { 
+		return prev.length > curr.length ? prev : curr; 
+	}, 0);
 
-	i++;
-}
-
-var longest = arrZeros.reduce((prev, curr)  => { 
-	return prev.length > curr.length ? prev : curr; 
-}, 0);
-
-
-return longest.length ? longest.length : 0;
+	return longest.length ? longest.length : 0;
 }
