@@ -44,7 +44,7 @@ function getRotatedArray (arr, numOfRotations) {
 	}
 
 
-	if (numOfRotations === 'undefined' || !Number.isInteger(parseInt(numOfRotations)) || numOfRotations < 0 || numOfRotations > 100) {
+	if (numOfRotations === 'undefined' || !Number.isInteger(parseInt(numOfRotations, 10)) || numOfRotations < 0 || numOfRotations > 100) {
 		return "The number of the rotations should be within the range [0..100].";
 	}
 

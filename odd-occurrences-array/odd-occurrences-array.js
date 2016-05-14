@@ -18,10 +18,6 @@ rl.question('Input: ', (arr) => {
 	rl.close();
 });
 
-function isInt4(value) {
-  return !isNaN(value) && (function(x) { return (x | 0) === x; })(parseFloat(value))
-}
-
 function getUnpairedElement (arr) {
 	// Uncomment this is you want to input data via cmd
 	/*if (arr) {
@@ -38,7 +34,7 @@ function getUnpairedElement (arr) {
 	// 2. Verify that the array contains only integers
 	var z = 0;
 	while (z < arr.length) {
-		if (!isInt4(arr[z])) {
+		if (!Number.isInteger(arr[z])) {
 			return 'The passed array should be containing only integers';
 		}
 		z++;
@@ -51,15 +47,17 @@ function getUnpairedElement (arr) {
 		k = 0,
 		arrLen = arr.length;
 
+
 	while (k < arrLen) {
-		var currEl = arr.splice(0, 1);
 		var obj = { 
 			'occurrences': 0,
 			'elemValue': 0
 		};
 
-		var j = 0;
+		var currEl = arr.splice(0, 1);
 		currEl = parseInt(currEl, 10);
+		
+		var j = 0;
 		while (j < arrTemp.length) {
 			arrTemp[j] = parseInt(arrTemp[j], 10);
 			if (currEl === arrTemp[j]) {
@@ -70,9 +68,8 @@ function getUnpairedElement (arr) {
 		}
 		k++;
 
-		
-		if (obj.occurrences === 1) {
-			return obj.elemValue;
-		}
+    	if (obj.occurrences === 1) {
+    		return obj.elemValue;
+    	}
 	}
 }
