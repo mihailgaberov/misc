@@ -12,8 +12,8 @@ rl.question('Input: ', (arr) => {
 	console.log('');
 	
 	console.log('Output: ', solution([1, 4, -1, 3, 2]));
-	// console.log('Output: ', solution([1, 4, 1, 3, 2, -1]));
-	// console.log('Output: ', solution([-1, 3,4,3,4, 1, 3, 2]));
+	console.log('Output: ', solution([1, 4, 1, 3, 2, -1]));
+	console.log('Output: ', solution([-1, 3, 4, 3, 4, 1, 3, 2]));
 	console.log('');
 	rl.close();
 });
@@ -36,8 +36,11 @@ function solution (arr) {
 		passed = false;
 
 	for (i = 0; i < len; i++) {
+		var obj = {};
 		if (arr[i] !== -1) {
-			list[i] = arr[i];
+			obj.data = arr[i];
+			obj.next = arr[arr[i]];
+			list.push(obj);
 		} else {
 			passed = true;
 			arr.splice(i, 1);
@@ -45,14 +48,12 @@ function solution (arr) {
 	}
 
 	if (passed)
-		list.push(-1);
+		list.push({data:-1, next: null});
     
 
     list = list.filter(function (arg) {
-    	return arg != undefined;
-    }); 
-
-    console.log('list: ', list);
+    	return arg.data != undefined;
+    });
 
     return list.length;
 }
