@@ -20,9 +20,6 @@ rl.question('Please enter a zero-indexed array consisting of integers, e.g. "1,2
 
 
 function rotatedArray (arr) {
-	
-	console.log("arr: ", arr);
-
 	var arrRotated = [];
 	var lastEl = arr[arr.length - 1];
 

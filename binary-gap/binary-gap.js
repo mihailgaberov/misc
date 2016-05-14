@@ -21,7 +21,7 @@ function getLongestBinaryGap (num) {
 		return 0;
 	}
 
-	num = parseInt(num);
+	num = parseInt(num, 10);
 	var bin = num.toString(2);
 
 	var arrBinaries = bin.split('1');
@@ -54,6 +54,8 @@ function getLongestBinaryGap (num) {
 	var longest = arrZeros.reduce((prev, curr)  => { 
 		return prev.length > curr.length ? prev : curr; 
 	}, 0);
+
+	console.log('longest: ', longest);
 
 	return longest.length ? longest.length : 0;
 }

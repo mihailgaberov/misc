@@ -11,9 +11,9 @@ var arrLarge = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 
 rl.question('Input: ', (arr) => {
 	console.log('');
-	// console.log('Output: ', getUnpairedElement([9, 3, 9, 3, 9, 7, 9]));
+	console.log('Output: ', getUnpairedElement([9, 3, 9, 3, 9, 7, 9]));
 	// console.log('Output: ', getUnpairedElement(arr));	// Uncomment this is you want to input data via cmd
-	console.log('Output: ', getUnpairedElement(arrLarge));
+	// console.log('Output: ', getUnpairedElement(arrLarge));
 	console.log('');
 	rl.close();
 });
@@ -59,10 +59,12 @@ function getUnpairedElement (arr) {
 		};
 
 		var j = 0;
+		currEl = parseInt(currEl, 10);
 		while (j < arrTemp.length) {
-			if (currEl.toString() === arrTemp[j].toString()) {
+			arrTemp[j] = parseInt(arrTemp[j], 10);
+			if (currEl === arrTemp[j]) {
 				obj.occurrences++;
-				obj.elemValue = arrTemp[j];
+				obj.elemValue = currEl;
 			}
 			j++;
 		}
@@ -70,7 +72,7 @@ function getUnpairedElement (arr) {
 
 		
 		if (obj.occurrences === 1) {
-			return parseInt(obj.elemValue, 10);
+			return obj.elemValue;
 		}
 	}
 }
