@@ -28,5 +28,69 @@ $main-path: '../../../';
       border-width: 0 14px 13px 14px;
       border-color: transparent transparent $live-pitch-background-color transparent;
     }
+
+    #matchInfo {
+      display: flex;
+      flex-direction: row;
+      color: $foreground-color;
+
+      .time {
+        order: 1;
+        :last-child {
+          color: $team-names-color;
+          font-size: .8em;
+        }
+      }
+
+      .teams {
+        order: 2;
+        color: $team-names-color;
+      }
+
+      .score {
+        order: 3;
+        flex-grow: 0.9;
+        text-align: right;
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+    }
+
+    #liveActions {
+      display: flex;
+      flex-direction: row;
+
+      .team1 {
+        display: inline-block;
+        width: 50%;
+        order: 1;
+        padding-left: 5%;
+        padding-top: 2%;
+      }
+
+      .team2 {
+        display: inline-block;
+        width: 50%;
+        order: 2;
+        padding-left: 7%;
+      }
+    }
+
+    #liveActionInfo {
+      color: $foreground-color;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      bottom: 10%;
+    }
+
+    .action-type {
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    .team-name {
+
+    }
   }
 }

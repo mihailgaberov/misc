@@ -171,5 +171,46 @@ body img.pointLeft {
     border-style: solid;
     border-width: 0 14px 13px 14px;
     border-color: transparent transparent #77a5b4 transparent; }
+  #live-bets-area #pitch-live #matchInfo {
+    display: flex;
+    flex-direction: row;
+    color: #fff; }
+    #live-bets-area #pitch-live #matchInfo .time {
+      order: 1; }
+      #live-bets-area #pitch-live #matchInfo .time :last-child {
+        color: #D9E6EA;
+        font-size: .8em; }
+    #live-bets-area #pitch-live #matchInfo .teams {
+      order: 2;
+      color: #D9E6EA; }
+    #live-bets-area #pitch-live #matchInfo .score {
+      order: 3;
+      flex-grow: 0.9;
+      text-align: right;
+      font-size: 1.1em;
+      font-weight: 600; }
+  #live-bets-area #pitch-live #liveActions {
+    display: flex;
+    flex-direction: row; }
+    #live-bets-area #pitch-live #liveActions .team1 {
+      display: inline-block;
+      width: 50%;
+      order: 1;
+      padding-left: 5%;
+      padding-top: 2%; }
+    #live-bets-area #pitch-live #liveActions .team2 {
+      display: inline-block;
+      width: 50%;
+      order: 2;
+      padding-left: 7%; }
+  #live-bets-area #pitch-live #liveActionInfo {
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 10%; }
+  #live-bets-area #pitch-live .action-type {
+    font-size: 1.1em;
+    font-weight: 600; }
 
 /*# sourceMappingURL=main.css.map */
