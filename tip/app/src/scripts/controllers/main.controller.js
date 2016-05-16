@@ -1,25 +1,28 @@
-angular.module('tipicoSportsbookControllers', []).controller('MainController', ['$scope', 'liveEventService', 'eventDetails',
-	function ($scope, liveEventService, eventDetails) {
+tipicoSportsbookControllers.controller('MainController', ['$rootScope', '$scope', 'liveEventService', 'Events', 'eventDetails',
+	function ($rootScope, $scope, liveEventService, Events, eventDetails) {
 
-		$scope.getLiveAction = function () {
+		function sendLiveAction () {
 			setInterval(function () {
-			 liveEventService.getEventLastAction().then(function (data) {
-			  $scope.$broadcast('LIVE_ACTION', data);
-			 });
+			 	liveEventService.getEventLastAction().then(function (data) {
+			  		$rootScope.$broadcast(Events.LIVE_ACTION, data);
+			 	});
 			 }, 4000);
 		};
 
-		$scope.checkEventDetails = function () {
-			console.log('>>> ', eventDetails);
-			if (_.isUndefined(eventDetails)) {
-				$scope.eventDetails = [];
-			} else {
+		function init () {
+			if (!_.isUndefined(eventDetails)) {
 				$scope.eventDetails = eventDetails;
-				$scope.getLiveAction();
+				
+				setTimeout(function () {
+					$rootScope.$broadcast(Events.EVENT_DETAILS, eventDetails);
+				}, 1000);
+
+			} else {
+				throw new Error('There is no data for the event. Please try refreshing the browser.');
 			}
+			sendLiveAction();
 		};
-		$scope.checkEventDetails();
 
-
+		init();
 	}
 ]);

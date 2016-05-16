@@ -1,38 +1,30 @@
-angular.module('tipicoSportsbookControllers')
-	.controller('LiveActionShowController', ['$scope',
-		function ($scope) {
+tipicoSportsbookControllers.controller('LiveActionShowController', ['$scope', 'Events',
+		function ($scope, Events) {
 
-			$scope.imagePath = '';
-			$scope.isVisible = false;
-			$scope.teamName = '';
-			$scope.lastAction = '';
-
-			function setImageName (name) {
-				$scope.imageName = name;
-			}
-
-			function parseEventData (eventData) {
-				if (!_.isNull(eventData) && !_.isUndefined(eventData.actionType) && !_.isUndefined(eventData.team)) {
-
-					$scope.lastAction = eventData.actionType;
-					$scope.teamName = eventData.team;
-
-					var direction = eventData.team === 1 ? 'left' : 'right';
-					$scope.isVisible = (direction === 'left');
-					var action = eventData.actionType.toLowerCase().replace(/ /g, '');
-					var name = action + '-' + direction + '.png';
-					setImageName(name);
-				}
-			}
-
-
-			$scope.$on('LIVE_ACTION', function (e, liveEvent) {
+			$scope.$on(Events.LIVE_ACTION, function (e, liveEvent) {
+				console.log('liveEvent: ', liveEvent);
 				parseEventData(liveEvent);
 			});
 
+			$scope.$on(Events.EVENT_DETAILS, function (e, eventData) {
+				console.log('>>> eventData: ', eventData);
+			});
 
+			$scope.imageName = '';
+			$scope.isVisible;
+			$scope.teamName = '';
+			$scope.lastAction = '';
 
-
+			function parseEventData (eventData) {
+				if (!_.isNull(eventData) && !_.isUndefined(eventData.actionType) && !_.isUndefined(eventData.team)) {
+					$scope.lastAction = eventData.actionType;
+					$scope.teamName = eventData.team;
+					var direction = eventData.team === 1 ? 'left' : 'right';
+					$scope.isVisible = (direction === 'left');
+					var action = eventData.actionType.toLowerCase().replace(/ /g, '');
+					$scope.imageName = action + '-' + direction + '.png';
+				}
+			}
 		}])
 	.directive('liveActionShow', function () {
 		return {

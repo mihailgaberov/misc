@@ -1,10 +1,10 @@
 <div id="liveActions">
     <div class="team1">
-        <img class="left" src="../img/live/{{ imageName }}" ng-show="isVisible" />
+        <img class="left" ng-src="../img/live/{{ imageName }}" ng-if="isVisible" />
         <!--<img class="left" src="../img/live/goalkick-left.png" />-->
     </div>
     <div class="team2">
-        <img class="right" src="../img/live/{{ imageName }}" ng-show  ="!isVisible" />
+        <img class="right" ng-src="../img/live/{{ imageName }}" ng-if="!isVisible" />
         <!--<img class="right" src="../img/live/goalkick-right.png" />-->
     </div>
 </div>
