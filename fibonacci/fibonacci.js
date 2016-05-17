@@ -7,7 +7,7 @@
 
 
 var yourself = {
-	memo: [],
+	memo: {},
 	fibonacci: function (n) {
 		if(this.memo[n]) {
 			return this.memo[n];
