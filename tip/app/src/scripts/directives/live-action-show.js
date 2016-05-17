@@ -1,30 +1,48 @@
 tipicoSportsbookControllers.controller('LiveActionShowController', ['$scope', 'Events',
 		function ($scope, Events) {
 
+			$scope.imageName = '';
+			$scope.isVisibleTeam1 = false;
+			$scope.isVisibleTeam2 = false;
+			$scope.teamName = '';
+			$scope.lastAction = '';
+
+			var teamNum = 0;
+			var objTeamNames = {};
+
 			$scope.$on(Events.LIVE_ACTION, function (e, liveEvent) {
 				console.log('liveEvent: ', liveEvent);
 				parseEventData(liveEvent);
 			});
 
-			$scope.$on(Events.EVENT_DETAILS, function (e, eventData) {
-				console.log('>>> eventData: ', eventData);
+			$scope.$on(Events.EVENT_DETAILS, function (e, eventDetails) {
+				console.log('eventDetails: ', eventDetails);
+				objTeamNames['1'] = eventDetails.team1;
+				objTeamNames['2'] = eventDetails.team2;
 			});
-
-			$scope.imageName = '';
-			$scope.isVisible;
-			$scope.teamName = '';
-			$scope.lastAction = '';
 
 			function parseEventData (eventData) {
 				if (!_.isNull(eventData) && !_.isUndefined(eventData.actionType) && !_.isUndefined(eventData.team)) {
 					$scope.lastAction = eventData.actionType;
-					$scope.teamName = eventData.team;
+					teamNum = eventData.team;
 					var direction = eventData.team === 1 ? 'left' : 'right';
-					$scope.isVisible = (direction === 'left');
 					var action = eventData.actionType.toLowerCase().replace(/ /g, '');
+
 					$scope.imageName = action + '-' + direction + '.png';
+					$scope.teamName = objTeamNames[teamNum];
+
+					isTeamActionVisible(direction);
 				}
 			}
+
+			function isTeamActionVisible (direction) {
+				if (_.isUndefined(direction))
+					return;
+
+				$scope.isVisibleTeam1 = (direction === 'left');
+				$scope.isVisibleTeam2 = !$scope.isVisibleTeam1;
+			}
+
 		}])
 	.directive('liveActionShow', function () {
 		return {
