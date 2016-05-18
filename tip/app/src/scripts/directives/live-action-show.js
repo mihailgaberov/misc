@@ -11,12 +11,11 @@ tipicoSportsbookControllers.controller('LiveActionShowController', ['$scope', 'E
 			var objTeamNames = {};
 
 			$scope.$on(Events.LIVE_ACTION, function (e, liveEvent) {
-				console.log('liveEvent: ', liveEvent);
+				//console.log('liveEvent: ', liveEvent);
 				parseEventData(liveEvent);
 			});
 
 			$scope.$on(Events.EVENT_DETAILS, function (e, eventDetails) {
-				console.log('eventDetails: ', eventDetails);
 				objTeamNames['1'] = eventDetails.team1;
 				objTeamNames['2'] = eventDetails.team2;
 			});

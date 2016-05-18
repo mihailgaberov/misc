@@ -1,8 +1,8 @@
-<section id="pitch-live">
+<section id="pitchLive">
     <div class="arrow"></div>
     <div id="matchInfo">
         <ul class="time">
-            <li>38'</li>
+            <li>{{ eventDetails.matchtime }}</li>
             <li>LIVE</li>
         </ul>
         <ul class="teams">
@@ -16,3 +16,4 @@
     </div>
     <live-action-show></live-action-show>
 </section>
+<live-action-info-bar event-data="::eventDetails"></live-action-info-bar>

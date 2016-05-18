@@ -149,20 +149,14 @@ body img.pointLeft {
 .tabs-nav .active {
   color: #454545; }
 
-#main-wrapper {
-  position: relative;
-  top: -16px; }
-
-#live-bets-area #pitch-live {
+#liveBetsArea #pitchLive {
   width: 100%;
   background-image: url("../../../img/live/pitch-live.svg");
   background-size: cover;
   height: 0;
-  padding: 0;
-  /* reset */
   padding-bottom: 47%;
   border: thin dotted darkgrey; }
-  #live-bets-area #pitch-live .arrow {
+  #liveBetsArea #pitchLive .arrow {
     position: relative;
     top: -12px;
     left: 12%;
@@ -171,46 +165,73 @@ body img.pointLeft {
     border-style: solid;
     border-width: 0 14px 13px 14px;
     border-color: transparent transparent #77a5b4 transparent; }
-  #live-bets-area #pitch-live #matchInfo {
+  #liveBetsArea #pitchLive #matchInfo {
     display: flex;
     flex-direction: row;
     color: #fff; }
-    #live-bets-area #pitch-live #matchInfo .time {
+    #liveBetsArea #pitchLive #matchInfo .time {
       order: 1; }
-      #live-bets-area #pitch-live #matchInfo .time :last-child {
-        color: #D9E6EA;
+      #liveBetsArea #pitchLive #matchInfo .time :last-child {
+        color: #d9e6ea;
         font-size: .8em; }
-    #live-bets-area #pitch-live #matchInfo .teams {
+    #liveBetsArea #pitchLive #matchInfo .teams {
       order: 2;
-      color: #D9E6EA; }
-    #live-bets-area #pitch-live #matchInfo .score {
+      color: #d9e6ea; }
+    #liveBetsArea #pitchLive #matchInfo .score {
       order: 3;
       flex-grow: 0.9;
       text-align: right;
       font-size: 1.1em;
       font-weight: 600; }
-  #live-bets-area #pitch-live #liveActions {
+  #liveBetsArea #pitchLive #liveActions {
     display: flex;
     flex-direction: row; }
-    #live-bets-area #pitch-live #liveActions .team1 {
+    #liveBetsArea #pitchLive #liveActions .team1 {
       display: inline-block;
       width: 50%;
       order: 1;
       padding-left: 5%;
       padding-top: 2%; }
-    #live-bets-area #pitch-live #liveActions .team2 {
+    #liveBetsArea #pitchLive #liveActions .team2 {
       display: inline-block;
       width: 50%;
       order: 2;
       padding-left: 7%; }
-  #live-bets-area #pitch-live #liveActionInfo {
+  #liveBetsArea #pitchLive #liveActionInfo {
     color: #fff;
     position: absolute;
     text-align: center;
     width: 100%;
-    bottom: 10%; }
-  #live-bets-area #pitch-live .action-type {
+    top: 50%; }
+  #liveBetsArea #pitchLive .action-type {
     font-size: 1.1em;
     font-weight: 600; }
+#liveBetsArea #liveActionInfoBar {
+  background-color: #484848;
+  color: #d9e6ea;
+  padding-left: 5%; }
+  #liveBetsArea #liveActionInfoBar span {
+    font-size: .8em;
+    line-height: 300%; }
+
+#liveMarketsArea #liveMarkets {
+  padding: 5%;
+  border: 1px solid red; }
+  #liveMarketsArea #liveMarkets .row-container {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row; }
+    #liveMarketsArea #liveMarkets .row-container .title {
+      order: 1; }
+    #liveMarketsArea #liveMarkets .row-container .first {
+      order: 2; }
+    #liveMarketsArea #liveMarkets .row-container .equal {
+      order: 3; }
+    #liveMarketsArea #liveMarkets .row-container .second {
+      order: 4; }
+
+#main-wrapper {
+  position: relative;
+  top: -16px; }
 
 /*# sourceMappingURL=main.css.map */

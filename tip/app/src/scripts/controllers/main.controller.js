@@ -13,6 +13,8 @@ tipicoSportsbookControllers.controller('MainController', ['$rootScope', '$scope'
 			if (!_.isUndefined(eventDetails)) {
 				$scope.eventDetails = eventDetails;
 
+				console.log(eventDetails);
+
 				setTimeout(function () {
 					$rootScope.$broadcast(Events.EVENT_DETAILS, eventDetails);
 				}, 100);

@@ -1,0 +1,29 @@
+#liveMarketsArea {
+  #liveMarkets {
+    padding: 5%;
+    border: 1px solid red;
+
+    .row-container {
+      border: 1px solid blue;
+      display: flex;
+      flex-direction: row;
+
+      .title {
+        order: 1;
+      }
+
+      .first {
+        order: 2;
+      }
+
+      .equal {
+        order: 3;
+      }
+
+      .second {
+        order: 4;
+      }
+    }
+  }
+
+}
