@@ -8,6 +8,10 @@ body {
     overflow-x: hidden;
 }
 
+body ul {
+    margin-left: 0;
+}
+
 body li {
     list-style: none;
 }
@@ -31,7 +35,7 @@ body img.pointLeft {
 #sportTypeMenu {
     background: $sport-type-menu-background-color;
     padding: 0;
-    margin-top: -16px;
+    margin-top: -20px;
 }
 
 #sportTypeMenu li {
@@ -50,7 +54,7 @@ body img.pointLeft {
 #subMenu {
     background: $background-submenu-color;
     padding: 0;
-    margin-top: -16px;
+    margin-top: -19px;
 }
 
 #subMenu li {
@@ -157,20 +161,6 @@ body img.pointLeft {
     float: right;
     padding-right: 10px;
 }
-
-/*
-.tabs-nav .tab-nav a .bottomArrow {
-    height: 0;
-    left: 50%;
-    margin-left: -6px;
-    width: 0;
-    border-right: 7px solid transparent;
-    border-left: 7px solid transparent;
-    border-bottom: 10px solid #77a5b4 !important;
-    position: relative;
-    bottom: 10px;
-}
-*/
 
 .tabs-nav .active {
     color: $tabsnav-active-foreground-color;

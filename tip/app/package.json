@@ -16,6 +16,7 @@
   "devDependencies": {
     "angular": "^1.5.5",
     "angular-route": "^1.5.5",
+    "foundation-apps": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
