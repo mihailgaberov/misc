@@ -21,7 +21,7 @@
     #matchInfo {
       display: flex;
       flex-direction: row;
-      color: $foreground-color;
+      color: $main-foreground-color;
 
       .time {
         order: 1;
@@ -49,44 +49,43 @@
       }
     }
 
-    #liveActions {
-      display: flex;
-      flex-direction: row;
-      position: absolute;
-      top: 15%;
-      width: 100%;
+    #liveActionShow {
+      height: 85px;
+      position: relative;
 
-      .team1 {
-        display: inline-block;
-        width: 50%;
-        order: 1;
-        padding-left: 5%;
-        padding-top: 2%;
+      #liveActions {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        .team1 {
+          display: inline-block;
+          width: 50%;
+          order: 1;
+          padding-left: 5%;
+          padding-top: 2%;
+        }
+
+        .team2 {
+          display: inline-block;
+          width: 50%;
+          order: 2;
+          padding-left: 7%;
+        }
       }
 
-      .team2 {
-        display: inline-block;
-        width: 50%;
-        order: 2;
-        padding-left: 7%;
+      #liveActionInfo {
+        color: $main-foreground-color;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        bottom: 5%;
       }
-    }
 
-    #liveActionInfo {
-      color: $foreground-color;
-      position: absolute;
-      text-align: center;
-      width: 100%;
-      top: 30%;
-    }
-
-    .action-type {
-      font-size: 1.1em;
-      font-weight: 600;
-    }
-
-    .team-name {
-
+      .action-type {
+        font-size: 1.1em;
+        font-weight: 600;
+      }
     }
   }
 

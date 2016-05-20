@@ -3,11 +3,11 @@ tipicoSportsbookControllers.controller('LiveMarketsController', ['$scope', 'Even
 
 			var vm = this;
 
-			var arrOdds = [];
+			$scope.markets = [];
 
 			function getOdds (data) {
-				arrOdds = data;
-				console.log('>>>> ', arrOdds);
+				$scope.markets = data;
+				console.log('>>>> ', $scope.markets);
 			}
 
 			liveEventService.getEventDetails().then(function (data) {
@@ -15,12 +15,12 @@ tipicoSportsbookControllers.controller('LiveMarketsController', ['$scope', 'Even
 					getOdds(data.odds);
 			});
 
-			this.test = function (ev) {
+			/*this.test = function (ev) {
 				console.log('>>> currTarg: ', ev.currentTarget);
 				console.log('>>> ev.target.value: ', ev.target.value);
 				console.log('>>> ev.target.id: ', ev.target.id);
 				console.log('>>> ev.target.name: ', ev.target.name);
-			}
+			}*/
 
 
 		}])
