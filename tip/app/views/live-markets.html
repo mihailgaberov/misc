@@ -1,37 +1,53 @@
 <section id="liveMarkets">
-<div class="row-container">
-	<ul class="button-group round toggle" data-toggle="buttons-radio">
-      <li>
-        <input type="radio" id="r1" name="r-group" data-toggle="button">
-        <label class="button" for="r1">Left</label>
-      </li>
-      <li>
-        <input type="radio" id="r2" name="r-group" data-toggle="button">
-        <label class="button" for="r2">Middle</label>
-      </li>
-      <li>
-        <input type="radio" id="r3" name="r-group" data-toggle="button">
-        <label class="button" for="r3">Right</label>
-      </li>
-    </ul>
-</div>
-<!-- 
     <div class="row-container">
         <div class="title">3-Way</div>
-        <div class="first"><a href="" class="hollow button">1 1.01</a></div>
-        <div class="equal"><a href="" class="hollow button">X 18</a></div>
-        <div class="second"><a href="" class="hollow button">2 80</a></div>
+        <ul class="button-group segmented odds">
+            <li>
+                <input type="radio" name="odds" value="1 1.01" id="first"/>
+                <label for="first">1 1.01</label>
+            </li>
+            <li>
+                <input type="radio" name="odds" value="X 18" id="equal"/>
+                <label for="equal">X 18</label>
+            </li>
+            <li>
+                <input type="radio" name="odds" value="2 80" id="second"/>
+                <label for="second">2 80</label>
+            </li>
+        </ul>
     </div>
     <div class="row-container">
         <div class="title">3-Way</div>
-        <div class="first"><a href="" class="hollow button">1 1.01</a></div>
-        <div class="equal"><a href="" class="hollow button">X 18</a></div>
-        <div class="second"><a href="" class="hollow button">2 80</a></div>
+        <ul class="button-group segmented odds">
+            <li>
+                <input type="radio" name="odds1" value="1 1.01" id="first1"/>
+                <label for="first1">1 1.01</label>
+            </li>
+            <li>
+                <input type="radio" name="odds1" value="X 18" id="equal1"/>
+                <label for="equal1">X 18</label>
+            </li>
+            <li>
+                <input type="radio" name="odds1" value="2 80" id="second1"/>
+                <label for="second1">2 80</label>
+            </li>
+        </ul>
     </div>
     <div class="row-container">
         <div class="title">3-Way</div>
-        <div class="first"><a href="" class="hollow button">1 1.01</a></div>
-        <div class="equal"><a href="" class="hollow button">X 18</a></div>
-        <div class="second"><a href="" class="hollow button">2 80</a></div>
-    </div> -->
+        <ul class="button-group segmented odds">
+            <li>
+                <input type="radio" name="odds2" value="1 1.01" id="first2" ng-click="vm.test($event)" />
+                <label for="first2">1 1.01</label>
+            </li>
+            <li>
+                <input type="radio" name="odds2" value="X 18" id="equal2"/>
+                <label for="equal2">X 18</label>
+            </li>
+            <li>
+                <input type="radio" name="odds2" value="2 80" id="second2"/>
+                <label for="second2">2 80</label>
+            </li>
+        </ul>
+    </div>
 </section>

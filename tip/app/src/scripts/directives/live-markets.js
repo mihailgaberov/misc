@@ -15,9 +15,12 @@ tipicoSportsbookControllers.controller('LiveMarketsController', ['$scope', 'Even
 					getOdds(data.odds);
 			});
 
-
-
-
+			this.test = function (ev) {
+				console.log('>>> currTarg: ', ev.currentTarget);
+				console.log('>>> ev.target.value: ', ev.target.value);
+				console.log('>>> ev.target.id: ', ev.target.id);
+				console.log('>>> ev.target.name: ', ev.target.name);
+			}
 
 
 		}])
