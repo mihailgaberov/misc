@@ -7,7 +7,6 @@ tipicoSportsbookControllers.controller('LiveMarketsController', ['$scope', 'Even
 
 			function getOdds (data) {
 				$scope.markets = data;
-				console.log('>>>> ', $scope.markets);
 			}
 
 			liveEventService.getEventDetails().then(function (data) {

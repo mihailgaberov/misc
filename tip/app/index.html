@@ -8,6 +8,17 @@
   <link rel="stylesheet" type="text/css" href="node_modules/foundation-apps/dist/css/foundation-apps.min.css" />
 </head>
 <body ng-app="tipico-mobile-sportsbook">
+
+<!-- Betslip START -->
+<div class="off-canvas right" id="example-canvas-right" position="right" zf-closable="offcanvas">
+<div class="grid-content ng-scope">
+<a href="#" zf-close="" class="close-button">×</a>
+<h3>This is a right off-canvas menu.</h3>
+</div>
+</div>
+<!-- <a zf-open="menu" class="button">Open Off-canvas</a> -->
+<!-- Betslip END -->
+
 <ul id="accountInfoMenu" class="tabs-nav">
   <li class="tab-nav small-nav">
     <a href="#">
@@ -20,7 +31,7 @@
   <li class="tab-nav"><a href="#"><div>My Account</div></a></li>
   <li class="tab-nav"><a href="#"><div>My bets</div></a></li>
   <li class="tab-nav noborder">
-    <a href="#">
+    <a href zf-hard-toggle="example-canvas-right">
       <div>
         <img class="right" src="../img/menu/menu-icon-blk.svg" />
         <span class="right">Betslip</span>
