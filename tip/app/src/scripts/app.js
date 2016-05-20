@@ -1,6 +1,6 @@
 var tipicoSportsbookControllers = angular.module('tipicoSportsbookControllers', []);
 var abApp = angular.module('tipico-mobile-sportsbook',
-	['ngRoute', 'live.event.service', 'tipicoSportsbookControllers']);
+	['ngRoute', 'live.event.service', 'tipicoSportsbookControllers', 'foundation.common', 'foundation.offcanvas']);
 
 abApp.config(['$routeProvider', function ($routeProvider) {
 

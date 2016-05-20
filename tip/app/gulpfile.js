@@ -19,7 +19,7 @@ var input = {
 
 // Default task
 gulp.task('default', function () {
-	gulp.start('styles', 'scripts');
+	gulp.start('styles', 'scripts', 'foundation-offcanvas');
 });
 
 // Deploy the styles
@@ -43,6 +43,13 @@ gulp.task('scripts', function () {
 		.pipe(uglify())
 		.pipe(gulp.dest(output.scripts))
 		.pipe(notify({message: 'Scripts task complete'}));
+});
+
+// Foundation components
+gulp.task('foundation-offcanvas', function () {
+return gulp.src(['./node_modules/foundation-apps/js/angular/components/offcanvas/*'])
+    .pipe(gulp.dest('./components/offcanvas/'))
+    .pipe(notify({message: 'Foundation offcanvas task complete'}));
 });
 
 // Watch
