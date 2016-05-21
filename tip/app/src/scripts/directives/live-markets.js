@@ -1,9 +1,8 @@
-tipicoSportsbookControllers.controller('LiveMarketsController', ['$scope', 'Events', 'liveEventService',
-		function ($scope, Events, liveEventService) {
-
-			var vm = this;
+tipicoSportsbookControllers.controller('LiveMarketsController', ['$rootScope', '$scope', 'Events', 'liveEventService',
+		function ($rootScope, $scope, Events, liveEventService) {
 
 			$scope.markets = [];
+			$scope.matchTitle = '';
 
 			function getOdds (data) {
 				$scope.markets = data;
@@ -12,14 +11,20 @@ tipicoSportsbookControllers.controller('LiveMarketsController', ['$scope', 'Even
 			liveEventService.getEventDetails().then(function (data) {
 				if (!_.isNull(data) && !_.isUndefined(data.odds))
 					getOdds(data.odds);
+					$scope.matchTitle = data.title;
 			});
 
-			/*this.test = function (ev) {
-				console.log('>>> currTarg: ', ev.currentTarget);
-				console.log('>>> ev.target.value: ', ev.target.value);
-				console.log('>>> ev.target.id: ', ev.target.id);
-				console.log('>>> ev.target.name: ', ev.target.name);
-			}*/
+			this.addToBetslip = function (oddId, oddValue, oddName, marketName) {
+				var objBet = {
+					'id': oddId,
+					'value': oddValue,
+					'name': oddName,
+					'matchTitle': $scope.matchTitle,
+					'market': marketName
+				};
+
+				$rootScope.$broadcast(Events.BET_DETAILS, objBet);
+			};
 
 
 		}])

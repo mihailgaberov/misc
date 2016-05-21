@@ -45,11 +45,11 @@ gulp.task('scripts', function () {
 		.pipe(notify({message: 'Scripts task complete'}));
 });
 
-// Foundation components
+// Foundation components - offcanvas
 gulp.task('foundation-offcanvas', function () {
 return gulp.src(['./node_modules/foundation-apps/js/angular/components/offcanvas/*'])
     .pipe(gulp.dest('./components/offcanvas/'))
-    .pipe(notify({message: 'Foundation offcanvas task complete'}));
+    .pipe(notify({message: 'Foundation Offcanvas task complete'}));
 });
 
 // Watch

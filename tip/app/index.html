@@ -6,11 +6,12 @@
   <link rel="stylesheet" href="dist/styles/main.min.css"/>
   <!-- <link rel="stylesheet" href="http://cdn.jsdelivr.net/zurb/foundation-apps-1.2.0.min.css" /> -->
   <link rel="stylesheet" type="text/css" href="node_modules/foundation-apps/dist/css/foundation-apps.min.css" />
+  <!--<link rel="stylesheet" type="text/css" href="node_modules/angular-keypad/dist/angular-keypad.min.css" />-->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="node_modules/angular-keypad/dist/angular-keypad.css" />
 </head>
 <body ng-app="tipico-mobile-sportsbook" zf-esc-close zf-close-all>
-
-<div ng-include="'views/betslip.html'"></div>
-
+	<betslip></betslip>
   <ul id="accountInfoMenu" class="tabs-nav">
     <li class="tab-nav small-nav">
       <a href="#">
@@ -23,11 +24,8 @@
     <li class="tab-nav"><a href="#"><div>My Account</div></a></li>
     <li class="tab-nav"><a href="#"><div>My bets</div></a></li>
     <li class="tab-nav noborder">
-      <a zf-toggle="betslip" style="border: 1px solid black;">Betslip
-        <!-- <div>
+      <a zf-toggle="betslip" class="betslip-btn">Betslip
           <img class="right" src="../img/menu/menu-icon-blk.svg" />
-          <span class="right">Betslip</span>
-        </div> -->
       </a>
     </li>
   </ul>
@@ -72,6 +70,9 @@
 
   <!-- <script src="http://cdn.jsdelivr.net/zurb/foundation-apps-1.2.0.min.js"></script> -->
   <script src="node_modules/foundation-apps/dist/js/foundation-apps.min.js"></script>
+
+	<!--<script src="node_modules/angular-keypad/dist/angular-keypad.min.js"></script>-->
+	<script src="node_modules/angular-keypad/dist/angular-keypad.js"></script>
 
   <!--<script src="dist/scripts/main.min.js"></script>-->
   <script src="dist/scripts/main.js"></script>
