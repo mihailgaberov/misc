@@ -17,11 +17,12 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      //'node_modules/angular-route/angular-route.js',
       'src/scripts/app.js',
       'src/scripts/constants/events.consts.js',
       'src/scripts/directives/betslip.js',
-      'tests/betslip.controller.test.js'
+      'src/scripts/directives/live-action-info-bar.js',
+      'tests/betslip.controller.test.js',
+      'tests/live-action-info-bar.controller.test.js'
     ],
 
 

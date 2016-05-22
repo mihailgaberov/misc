@@ -3,18 +3,18 @@ tipicoSportsbookControllers.controller('LiveActionInfoBarController', ['$scope',
 
 			var vm = this;
 
-			var objTeamNames = {
+			vm.objTeamNames = {
 				1: $scope.eventData.team1,
 				2: $scope.eventData.team2
 			};
 
 			$scope.$on(Events.LIVE_ACTION, function (e, liveEvent) {
-					parseLiveActionData(liveEvent);
+					vm.parseLiveActionData(liveEvent, vm.objTeamNames);
 			});
 
-			function parseLiveActionData (data) {
+			vm.parseLiveActionData = function (data) {
 				vm.lastAction = data.actionType;
-				vm.teamName = objTeamNames[data.team];
+				vm.teamName = vm.objTeamNames[data.team];
 			}
 
 		}])

@@ -9,11 +9,12 @@ tipicoSportsbookControllers.controller('BetslipController', ['$scope', 'Events',
 			vm.possibleGain = 0;
 
 			$scope.$watch('vm.inputBetValue', function () {
-				getPossibleGain();
+				vm.getPossibleGain(vm.inputBetValue, vm.getTotalOdds(vm.arrBets));
 			});
 
 			$scope.$on(Events.BET_DETAILS, function (e, data) {
 				vm.arrBets.push(data);
+				console.log(vm.arrBets);
 				vm.betsNumber = vm.arrBets.length;
 				vm.inputBetValue = '0';
 			});
@@ -28,9 +29,9 @@ tipicoSportsbookControllers.controller('BetslipController', ['$scope', 'Events',
 				return totalOdds;
 			};
 
-			var getPossibleGain = function () {
-				if (vm.inputBetValue !== '') {
-					var gain = parseFloat(vm.inputBetValue) * vm.getTotalOdds(vm.arrBets);
+			vm.getPossibleGain = function (stake, totalOdds) {
+				if (stake !== '') {
+					var gain = parseFloat(stake) * totalOdds;
 					vm.possibleGain = gain;
 					return gain;
 				}
@@ -44,7 +45,7 @@ tipicoSportsbookControllers.controller('BetslipController', ['$scope', 'Events',
 					}
 				});
 				vm.betsNumber = vm.arrBets.length;
-				vm.possibleGain = getPossibleGain();
+				vm.possibleGain = vm.getPossibleGain(vm.inputBetValue, vm.getTotalOdds(vm.arrBets));
 
 				if (vm.betsNumber === 0) {
 					vm.inputBetValue = '0';
