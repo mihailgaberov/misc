@@ -342,19 +342,26 @@ body img.pointLeft {
             #betslip #bets .bet ul li.delete-bet-area .delete-bet-btn i {
               font-size: 1.6em;
               color: #484848; }
+  #betslip #keypad .close-keypad-btn {
+    width: 100%;
+    height: 30px;
+    background-color: #666666;
+    border: 1px solid #555;
+    font-size: .8em;
+    color: #d9e6ea; }
   #betslip #keypad .bc-keypad {
     background-color: #666666; }
   #betslip #keypad .bc-keypad__button {
     border: 1px solid #555;
     width: 33%;
-    color: #fff;
+    color: #d9e6ea;
     font-size: .8em; }
     #betslip #keypad .bc-keypad__button::after {
       background-color: transparent; }
   #betslip #keypad .bc-keypad__button:nth-of-type(10) {
     margin-left: 0; }
   #betslip #keypad .bc-keypad__button:nth-of-type(12) {
-    width: 32%; }
+    margin-left: -4px; }
   #betslip #keypad .bc-keypad__button--backspace svg {
     height: 25px; }
   #betslip #placeBetArea {

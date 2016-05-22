@@ -1,23 +1,62 @@
 tipicoSportsbookControllers.controller('BetslipController', ['$scope', 'Events',
 		function ($scope, Events) {
+			var vm = this;
 
-			$scope.arrBets = [];
+			vm.inputBetValue = '0';
+			vm.isKeypadVisible = true;
+			vm.arrBets = [];
+			vm.betsNumber = 0;
+			vm.possibleGain = 0;
 
-			$scope.$on(Events.BET_DETAILS, function (e, data) {
-				console.log(data);
-				$scope.arrBets.push(data);
+			$scope.$watch('vm.inputBetValue', function () {
+				getPossibleGain();
 			});
 
-			$scope.deleteBet = function (betId) {
-				$scope.arrBets.forEach(function (el, idx) {
-					if (el.id === betId) {
-						$scope.arrBets.splice(idx, 1);
-					}
+			$scope.$on(Events.BET_DETAILS, function (e, data) {
+				vm.arrBets.push(data);
+				vm.betsNumber = vm.arrBets.length;
+				vm.inputBetValue = '0';
+			});
+
+			vm.getTotalOdds = function (arrBets) {
+				var totalOdds = 0;
+				arrBets.forEach(function (el) {
+					var val = parseFloat((el.value).toString().replace(',', '.'));
+					totalOdds += (val);
 				});
+
+				return totalOdds;
 			};
 
-			$scope.inputBetValue = '';
+			var getPossibleGain = function () {
+				if (vm.inputBetValue !== '') {
+					var gain = parseFloat(vm.inputBetValue) * vm.getTotalOdds(vm.arrBets);
+					vm.possibleGain = gain;
+					return gain;
+				}
+				return vm.possibleGain = 0;
+			};
 
+			vm.deleteBet = function (e, betId) {
+				vm.arrBets.forEach(function (el, idx) {
+					if (el.id === betId) {
+						vm.arrBets.splice(idx, 1);
+					}
+				});
+				vm.betsNumber = vm.arrBets.length;
+				vm.possibleGain = getPossibleGain();
+
+				if (vm.betsNumber === 0) {
+					vm.inputBetValue = '0';
+				}
+
+				e.stopPropagation();
+			};
+
+			vm.setKeypadVisibility = function (e, isVisible) {
+				vm.isKeypadVisible = isVisible;
+				e.stopPropagation();
+			};
 
 		}])
 	.directive('betslip', function () {

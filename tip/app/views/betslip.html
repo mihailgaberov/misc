@@ -13,11 +13,11 @@
 		</ul>
 	</section>
 	<section id="messages">
-		<span class="info label" ng-if="!visible && arrBets.length == 0">Your bet slip is empty. Add bets first.</span>
+		<span class="info label" ng-if="!visible && vm.arrBets.length == 0">Your bet slip is empty. Add bets first.</span>
 		<span class="confirmation label" ng-if="visible"><i class="fa fa-check-circle" aria-hidden="true"></i>Betslip submitted</span>
 	</section>
 	<section id="bets">
-		<div class="bet" ng-repeat="bet in arrBets">
+		<div class="bet" ng-repeat="bet in vm.arrBets">
 			<ul>
 				<li class="bet-info-area">
 					<div class="match-title">{{ bet.matchTitle }}</div>
@@ -27,7 +27,7 @@
 					</div>
 				</li>
 				<li class="delete-bet-area">
-					<div class="delete-bet-btn" ng-click="deleteBet(bet.id)">
+					<div class="delete-bet-btn" ng-click="vm.deleteBet($event, bet.id)">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</div>
 				</li>
@@ -35,24 +35,26 @@
 		</div>
 	</section>
 	<section id="keypad">
-		<bc-keypad bc-number-model="inputBetValue" bc-max-length="9"></bc-keypad>
+		<button class="close-keypad-btn" ng-click="vm.setKeypadVisibility($event, false)" ng-if="vm.isKeypadVisible == true">Close</button>
+		<button class="close-keypad-btn" ng-click="vm.setKeypadVisibility($event, true)" ng-if="vm.isKeypadVisible == false">Open</button>
+		<bc-keypad bc-number-model="vm.inputBetValue" bc-max-length="9" ng-show="vm.isKeypadVisible"></bc-keypad>
 	</section>
 	<section id="placeBetArea">
 		<div class="bets-number">
 			<div class="title">Number of bets</div>
-			<div class="value">0</div>
+			<div class="value">{{ vm.betsNumber }}</div>
 		</div>
 		<div class="wager">
 			<div class="title">Wager</div>
 			<div class="input">
 				<form name="betslipForm">
-					<input type="text" name="bet-value" id="betValue" ng-model="inputBetValue"/>
+					<input type="text" name="bet-value" id="betValue" ng-model="vm.inputBetValue" />
 				</form>
 			</div>
 		</div>
 		<div class="possible-gain">
 			<div class="title">Possible gain</div>
-			<div class="value">0.00 €</div>
+			<div class="value">{{ vm.possibleGain | number:2 }} €</div>
 		</div>
 		<div class="buttons">
 			<ul class="button-group expand">

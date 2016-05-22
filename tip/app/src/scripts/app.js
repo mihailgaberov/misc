@@ -1,8 +1,10 @@
 var tipicoSportsbookControllers = angular.module('tipicoSportsbookControllers', []);
-var abApp = angular.module('tipico-mobile-sportsbook',
-	['ngRoute', 'live.event.service', 'tipicoSportsbookControllers', 'foundation.common', 'foundation.offcanvas', 'bc.AngularKeypad']);
+var tipicoSportsbookServices = angular.module('tipicoSportsbookServices', []);
 
-abApp.config(['$routeProvider', function ($routeProvider) {
+var app = angular.module('tipicoMobileSportsbook',
+	['ngRoute', 'tipicoSportsbookServices', 'tipicoSportsbookControllers', 'foundation.common', 'foundation.offcanvas', 'bc.AngularKeypad']);
+
+app.config(['$routeProvider', function ($routeProvider) {
 
 	$routeProvider
 		.when('/', {
@@ -16,9 +18,9 @@ abApp.config(['$routeProvider', function ($routeProvider) {
 		})
 		.otherwise({redirectTo: '/'});
 
-}]).constant('_', window._).config(function(KeypadConfigProvider) {
+}]).constant('_', window._).config(function (KeypadConfigProvider) {
 	KeypadConfigProvider.backspaceTemplate = '../img/icons/backspace.svg';
 	KeypadConfigProvider.numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, '.', 0];
 }).run([function () {
 
-	}]);
+}]);
