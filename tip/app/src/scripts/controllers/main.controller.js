@@ -1,7 +1,8 @@
 tipicoSportsbookControllers.controller('MainController', ['$rootScope', '$scope', 'liveEventService', 'Events', 'eventDetails',
 	function ($rootScope, $scope, liveEventService, Events, eventDetails) {
+		var vm = this;
 
-		function sendLiveAction () {
+		vm.sendLiveAction = function () {
 			setInterval(function () {
 			 	liveEventService.getEventLastAction().then(function (data) {
 			  		$rootScope.$broadcast(Events.LIVE_ACTION, data);
@@ -9,7 +10,7 @@ tipicoSportsbookControllers.controller('MainController', ['$rootScope', '$scope'
 			 }, 4000);
 		}
 
-		function init () {
+		vm.init = function () {
 			if (!_.isUndefined(eventDetails)) {
 				$scope.eventDetails = eventDetails;
 				setTimeout(function () {
@@ -19,9 +20,9 @@ tipicoSportsbookControllers.controller('MainController', ['$rootScope', '$scope'
 			} else {
 				throw new Error('There is no data for the event. Please try refreshing the browser.');
 			}
-			sendLiveAction();
+			vm.sendLiveAction();
 		}
 
-		init();
+		vm.init();
 	}
 ]);
