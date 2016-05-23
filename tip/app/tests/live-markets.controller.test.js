@@ -19,7 +19,6 @@ describe('LiveMarketsController:', function () {
 
 	it('should broadcast event with the bet that is to be added to the betslip', function () {
 		controller.addToBetslip(123, 11, 1, '3 Way');
-
 		var objBet = { 
 						'id': 123,
 						'value': 11,
@@ -28,5 +27,11 @@ describe('LiveMarketsController:', function () {
 						'market': '3 Way'
 		  			};
 		expect($rootScope.$broadcast).toHaveBeenCalledWith('betDetails', objBet);
+	});
+
+	it('should get the odds from the data and add them to they source array', function () {
+		var odds = [{}];
+		controller.getOdds(odds);
+		expect($scope.markets.length).toEqual(1);
 	});
 });

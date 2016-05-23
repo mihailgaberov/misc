@@ -4,13 +4,13 @@ tipicoSportsbookControllers.controller('LiveMarketsController', ['$rootScope', '
 			$scope.markets = [];
 			$scope.matchTitle = '';
 
-			function getOdds (data) {
+			this.getOdds = function (data) {
 				$scope.markets = data;
 			}
 
 			liveEventService.getEventDetails().then(function (data) {
 				if (!_.isNull(data) && !_.isUndefined(data.odds))
-					getOdds(data.odds);
+					this.getOdds(data.odds);
 					$scope.matchTitle = data.title;
 			});
 
