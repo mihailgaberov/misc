@@ -19,10 +19,13 @@ module.exports = function(config) {
       'node_modules/angular-mocks/angular-mocks.js',
       'src/scripts/app.js',
       'src/scripts/constants/events.consts.js',
+      'src/scripts/services/live-event-service-min.js',
       'src/scripts/directives/betslip.js',
       'src/scripts/directives/live-action-info-bar.js',
+      'src/scripts/directives/live-markets.js',
       'tests/betslip.controller.test.js',
-      'tests/live-action-info-bar.controller.test.js'
+      'tests/live-action-info-bar.controller.test.js',
+      'tests/live-markets.controller.test.js'
     ],
 
 
