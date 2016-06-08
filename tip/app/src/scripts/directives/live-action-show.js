@@ -1,5 +1,6 @@
 tipicoSportsbookControllers.controller('LiveActionShowController', ['$scope', 'Events',
 		function ($scope, Events) {
+			var vm = this;
 
 			$scope.imageName = '';
 			$scope.isVisibleTeam1 = false;
@@ -8,18 +9,18 @@ tipicoSportsbookControllers.controller('LiveActionShowController', ['$scope', 'E
 			$scope.lastAction = '';
 
 			var teamNum = 0;
-			this.objTeamNames = {};
+			vm.objTeamNames = {};
 
 			$scope.$on(Events.LIVE_ACTION, function (e, liveEvent) {
-				this.parseEventData(liveEvent);
+				vm.parseEventData(liveEvent);
 			});
 
 			$scope.$on(Events.EVENT_DETAILS, function (e, eventDetails) {
-				this.objTeamNames['1'] = eventDetails.team1;
-				this.objTeamNames['2'] = eventDetails.team2;
+				vm.objTeamNames['1'] = eventDetails.team1;
+				vm.objTeamNames['2'] = eventDetails.team2;
 			});
 
-			this.parseEventData = function (eventData) {
+			vm.parseEventData = function (eventData) {
 				if (!_.isNull(eventData) && !_.isUndefined(eventData.actionType) && !_.isUndefined(eventData.team)) {
 					$scope.lastAction = eventData.actionType;
 					teamNum = eventData.team;
@@ -27,13 +28,13 @@ tipicoSportsbookControllers.controller('LiveActionShowController', ['$scope', 'E
 					var action = eventData.actionType.toLowerCase().replace(/ /g, '');
 
 					$scope.imageName = action + '-' + direction + '.png';
-					$scope.teamName = this.objTeamNames[teamNum];
+					$scope.teamName = vm.objTeamNames[teamNum];
 
-					this.isTeamActionVisible(direction);
+					vm.isTeamActionVisible(direction);
 				}
 			}
 
-			this.isTeamActionVisible  = function (direction) {
+			vm.isTeamActionVisible  = function (direction) {
 				if (_.isUndefined(direction))
 					return;
 
