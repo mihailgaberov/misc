@@ -1,1 +1,1 @@
-This repo would contain any presentable stuff that deserves to be preserved.
+This repo would serve as a container for miscellaneous stuff to be presented or self-trainings to be preserved. 
