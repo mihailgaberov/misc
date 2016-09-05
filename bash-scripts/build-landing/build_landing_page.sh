@@ -4,11 +4,11 @@ printf "\n\n\n\n\n\n"
 printf "\n\n========== Build started =========\n\n"
 
 ## Start 'gulp inline' command
-#if ! gulp inline; then echo "Running gulp failed."; exit 1; fi
-#printf "==> Started gulp inline\n\n"
+if ! gulp inline; then echo "Running gulp failed."; exit 1; fi
+printf "==> Started gulp inline\n\n"
 
 ## Wait for gulp to finish
-#wait $gulp
+wait $gulp
 
 ## Create a new folder
 if ! mkdir -p landingPageBuild; then echo "Creating new landingPageBuild folder failed."; exit 1; fi
