@@ -1,1 +1,1 @@
-This repo would serve as a container for miscellaneous stuff to be presented or self-trainings to be preserved. 
+Contains demos, helper classes, experiments, and other resources that don't belong in the main repos.
