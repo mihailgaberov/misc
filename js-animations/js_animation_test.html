@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style type="text/css">
+
+		.top-path {
+			position: absolute;
+			top: 398px;
+			width: 500px;
+			height: 50px;
+			border: 2px solid black;
+			border-right: none;
+		}
+
+		.bottom-path {
+			top: 500px;
+			left: 400px;
+			position: relative;
+			width: 500px;
+			height: 50px;
+			border: 2px solid black;
+			border-top: none;
+		}
+
+		.ball {
+			margin-left: 50%;
+			background-color: red;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			position: absolute;
+		}
+	</style>
+	<script>
+		function animate(opts) {
+			var start = new Date   
+
+			var id = setInterval(function() {
+				var timePassed = new Date - start;
+				var progress = timePassed / opts.duration;
+
+				if (progress > 1) progress = 1;
+
+				var delta = opts.delta(progress);
+
+				opts.step(delta);
+
+				if (progress == 1) {
+					clearInterval(id)
+				}
+			}, opts.delay || 10);
+		}
+
+		function bounce(progress) {
+			for(var a = 0, b = 1, result; 1; a += b, b /= 2) {
+				if (progress >= (7 - 4 * a) / 11) {
+					return -Math.pow((11 - 6 * a - 11 * progress) / 4, 2) + Math.pow(b, 2)
+				}
+			}
+		}
+
+		function linear(progress) {
+			return progress
+		}
+
+
+		function move(element, delta, duration) {
+			var to = 110;
+
+			animate({
+				delay: 5,
+				duration: duration || 500,
+				delta: delta,
+				step: function(delta) {
+					element.style.top = -to*delta + "px";
+				}
+			});
+
+			animate({
+				delay: 10,
+				duration: duration || 1000,
+				delta: linear,
+				step: function(delta) {
+					element.style.left = -to*2*delta + "px";
+				}
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<div class="top-path">
+	</div>
+	<div onclick="move(this.children[0], bounce)" class="bottom-path">
+		<div class="ball"></div>
+	</div>
+</body>
+</html>
