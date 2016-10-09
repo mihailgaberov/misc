@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Styling ball</title>
+
+	<style type="text/css">
+		#ball1 {
+			display: inline-block;
+			margin: 0 auto;
+			width: 400px;
+			height: 400px;
+			border-radius: 50%;
+			border: 5px solid black;
+		    background: radial-gradient(circle at 50% 120%, #008ed6, #76deef 10%, #055194 80%, #062745 100%);
+
+		}
+
+		#ball1:before {
+			content: "";
+			position: absolute;
+			top: 1%;
+			left: 0%;
+			width: 32%;
+			height: 41%;
+			border-radius: 50%;
+			background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+			-webkit-filter: blur(5px);
+			z-index: 2;
+		}
+
+		#ball2 {
+			display: inline-block;
+			margin: 0 auto;
+			width: 400px;
+			height: 400px;
+			border-radius: 50%;
+			border: 5px solid black;
+		    background: radial-gradient(circle at 50% 120%, #83d100, #c3ec81 10%, #83d100 80%, #83d100 100%);
+
+		}
+
+		#ball2:before {
+			content: "";
+			position: absolute;
+			top: 1%;
+			left: 31%;
+			width: 32%;
+			height: 41%;
+			border-radius: 50%;
+			background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+			-webkit-filter: blur(5px);
+			z-index: 2;
+		}
+
+		#ball3 {
+			display: inline-block;
+			margin: 0 auto;
+			width: 400px;
+			height: 400px;
+			border-radius: 50%;
+			border: 5px solid black;
+		    background: radial-gradient(circle at 50% 120%, #e17000, #f6c079 10%, #e17000 80%, #e17000 100%);
+
+		}
+
+		#ball3:before {
+			content: "";
+			position: absolute;
+			top: 1%;
+			left: 62%;
+			width: 32%;
+			height: 41%;
+			border-radius: 50%;
+			background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+			-webkit-filter: blur(5px);
+			z-index: 2;
+		}
+
+		#ball4 {
+			display: inline-block;
+			margin: 0 auto;
+			width: 400px;
+			height: 400px;
+			border-radius: 50%;
+			border: 5px solid black;
+		    background: radial-gradient(circle at 50% 120%, #a71906, #e35a45 10%, #a71906 80%, #a71906 100%);
+
+		}
+
+		#ball4:before {
+			content: "";
+			position: absolute;
+			top: 44%;
+			left: 0;
+			width: 32%;
+			height: 41%;
+			border-radius: 50%;
+			background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+			-webkit-filter: blur(5px);
+			z-index: 2;
+		}
+
+		#ball5 {
+			display: inline-block;
+			margin: 0 auto;
+			width: 400px;
+			height: 400px;
+			border-radius: 50%;
+			border: 5px solid black;
+		    background: radial-gradient(circle at 50% 120%, #642e88, #8f4ad2 10%, #642e88 80%, #642e88 100%);
+
+		}
+
+		#ball5:before {
+			content: "";
+			position: absolute;
+			top: 44%;
+			left: 31%;
+			width: 32%;
+			height: 41%;
+			border-radius: 50%;
+			background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+			-webkit-filter: blur(5px);
+			z-index: 2;
+		}
+
+		#innerCircle {
+			width: 75%;
+		  	height: 75%;
+		  	border-radius: 50%;
+		  	background-color: white;
+		  	margin: 0 auto;
+		  	position: relative;
+		  	top: 13%;
+		}
+
+		#number {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 9.5em;
+			font-weight: bold;
+			position: relative;
+			text-align: center;
+			display: block;
+			top: 18%;
+			width: 200px;
+			margin: 0 auto;
+		}
+	</style>
+
+<body>
+
+<div id="ball1">
+	<div id="innerCircle">
+        <span id="number">63</span>
+    </div>
+</div>
+<div id="ball2">
+	<div id="innerCircle">
+        <span id="number">23</span>
+    </div>
+</div>
+<div id="ball3">
+	<div id="innerCircle">
+        <span id="number">12</span>
+    </div>
+</div>
+<div id="ball4">
+	<div id="innerCircle">
+        <span id="number">4</span>
+    </div>
+</div>
+<div id="ball5">
+	<div id="innerCircle">
+        <span id="number">55</span>
+    </div>
+</div>
+
+</body>
+</html>
