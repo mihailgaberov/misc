@@ -27,15 +27,17 @@ class Bangup {
 			// stop the piling
 			return;
 		} else {
-			this.fromSum += 1;
+			this.fromSum += Bangup.easeInOutQuart(1);
 		}
 
 		this.container.innerHTML = this.fromSum;
 
-		console.log('>>> res = ', this.fromSum);
-
 		window.requestAnimationFrame(this.pileNumbers.bind(this));
+	}
+
+	static easeInOutQuart(t) {
+		return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t;
 	}
 }
 
-let bangup = new Bangup(document.querySelector('#prize'), 5, 55);
+let bangup = new Bangup(document.querySelector('#prize'), 1, 100);
