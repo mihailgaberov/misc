@@ -1,0 +1,15 @@
+#balance span {
+    background: url("../img/dollar_sign.jpg") no-repeat;
+    display: inline-block;
+    width: 40px;
+    height: 32px;
+}
+
+#balance div {
+    display: inline-block;
+    height: 40px;
+    padding-right: 50px;
+    font-family: sans-serif;
+    font-size: 2.23em;
+    font-weight: bold;
+}
