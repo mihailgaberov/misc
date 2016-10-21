@@ -16,6 +16,7 @@ A simple es6 class for piling a sum of an imaginable prize. Mostly used in gambl
 ## Install
 
 ```
+npm i
 npm run build
 ```
 
