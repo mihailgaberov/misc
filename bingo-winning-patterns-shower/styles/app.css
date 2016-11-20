@@ -7,8 +7,8 @@
 
 #horizontal {
     display: inline-block;
-    width: 160px;
-    height: 135px;
+    width: 48%;
+    height: 48%;
     border: 1px solid orange;
 }
 
@@ -23,8 +23,8 @@
 
 #vertical {
     display: inline-block;
-    width: 160px;
-    height: 135px;
+    width: 48%;
+    height: 48%;
     border: 1px solid green;
 }
 
@@ -39,8 +39,8 @@
 
 #diagonal {
     display: inline-block;
-    width: 160px;
-    height: 135px;
+    width: 48%;
+    height: 48%;
     border: 1px solid pink;
 }
 
