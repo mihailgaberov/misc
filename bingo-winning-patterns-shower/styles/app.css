@@ -1,0 +1,27 @@
+#winningPatterns #container {
+    width: 330px;
+    height: 278px;
+    border: 1px solid red;
+    text-align: center;
+}
+
+#horizontal {
+    display: inline-block;
+    width: 160px;
+    height: 135px;
+    border: 1px solid blue;
+}
+
+#vertical {
+    display: inline-block;
+    width: 160px;
+    height: 135px;
+    border: 1px solid green;
+}
+
+#diagonal {
+    display: inline-block;
+    width: 160px;
+    height: 135px;
+    border: 1px solid pink;
+}
