@@ -15,12 +15,13 @@ class WinningPatternsTable {
 
 	createDomElement() {
 		const elTable = document.createElement('table');
-		let i = 0;
-		while (i < this.rows) {
+		let i = 1;
+		while (i <= this.rows) {
 			const elRow = document.createElement('tr');
-			let j = 0;
-			while (j < this.cols) {
+			let j = 1;
+			while (j <= this.cols) {
 				const elCell = document.createElement('td');
+				elCell.setAttribute('id', 'x'+j + 'y' + i);
 				elRow.appendChild(elCell);
 				j++;
 			}
