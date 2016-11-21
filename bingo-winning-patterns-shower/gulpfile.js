@@ -9,14 +9,14 @@ gulp.task('es6', () => {
 		.transform('babelify', {
 			presets: ['es2015']
 		})
-		.bundle()	
+		.bundle()
 		.pipe(source('app.js'))
 		.pipe(buffer())
 		.pipe(gulp.dest('build/'));
 });
 
 gulp.task('default', ['es6'],() => {
-	gulp.watch('src/app.js',['es6'])
+	gulp.watch('src/*.js',['es6'])
 });
 
 
