@@ -21,6 +21,10 @@
     border: 1px solid black;
 }
 
+#horizontal table td#x1y1 {
+    background-color: darkred;
+}
+
 #vertical {
     display: inline-block;
     width: 48%;
