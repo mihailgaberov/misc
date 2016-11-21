@@ -52,7 +52,7 @@ class WinningPatternsTable {
 		let yIdx = 1;
 		setInterval(() => {
 			// Clear all cells background first
-			const arrCells = document.querySelectorAll('td');
+			const arrCells = this.elem.querySelectorAll('td');
 			let cellIdx = 0;
 			while (cellIdx < arrCells.length) {
 				if (arrCells[cellIdx].classList.contains('highlighted')) {
@@ -63,7 +63,7 @@ class WinningPatternsTable {
 
 			let xIdx = 1;
 			while (xIdx <= this.cols) {
-				const elCell = document.querySelector(`#x${xIdx}y${yIdx}`);
+				const elCell = this.elem.querySelector(`#x${xIdx}y${yIdx}`);
 				elCell.classList.add('highlighted');
 				xIdx++;
 			}
@@ -77,7 +77,31 @@ class WinningPatternsTable {
 	}
 
 	startVerticalAnim() {
+		let xIdx = 1;
+		setInterval(() => {
+			// Clear all cells background first
+			const arrCells = this.elem.querySelectorAll('td');
+			let cellIdx = 0;
+			while (cellIdx < arrCells.length) {
+				if (arrCells[cellIdx].classList.contains('highlighted')) {
+					arrCells[cellIdx].classList.remove('highlighted');
+				}
+				cellIdx++;
+			}
 
+			let yIdx = 1;
+			while (yIdx <= this.rows) {
+				const elCell = this.elem.querySelector(`#x${xIdx}y${yIdx}`);
+				elCell.classList.add('highlighted');
+				yIdx++;
+			}
+
+			if (xIdx === this.rows) {
+				xIdx = 0;
+			}
+
+			xIdx++;
+		}, 1000)
 	}
 
 	startDiagonallAnim() {
