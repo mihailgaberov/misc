@@ -21,10 +21,6 @@
     border: 1px solid black;
 }
 
-#horizontal table td#x1y1 {
-    background-color: darkred;
-}
-
 #vertical {
     display: inline-block;
     width: 48%;
@@ -55,4 +51,8 @@
 
 #diagonal table, th, td {
     border: 1px solid black;
+}
+
+.highlighted {
+    background-color: darkred;
 }
