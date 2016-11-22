@@ -13,8 +13,10 @@ class WinningPatternsTable {
 		this.createDomElement();
 	}
 
+	/**
+	 *  Define which pattern animation to start
+	 */
 	startAnimation() {
-		// Define which pattern animation to start
 		switch (this.pattern) {
 			case 'horizontal':
 				this.startHorizontalAnim();
@@ -48,18 +50,24 @@ class WinningPatternsTable {
 		this.startAnimation();
 	}
 
+	/**
+	 * Clear all cells background
+	 */
+	clearTable() {
+		const arrCells = this.elem.querySelectorAll('td');
+		let cellIdx = 0;
+		while (cellIdx < arrCells.length) {
+			if (arrCells[cellIdx].classList.contains('highlighted')) {
+				arrCells[cellIdx].classList.remove('highlighted');
+			}
+			cellIdx++;
+		}
+	}
+
 	startHorizontalAnim() {
 		let yIdx = 1;
 		setInterval(() => {
-			// Clear all cells background first
-			const arrCells = this.elem.querySelectorAll('td');
-			let cellIdx = 0;
-			while (cellIdx < arrCells.length) {
-				if (arrCells[cellIdx].classList.contains('highlighted')) {
-					arrCells[cellIdx].classList.remove('highlighted');
-				}
-				cellIdx++;
-			}
+			this.clearTable();
 
 			let xIdx = 1;
 			while (xIdx <= this.cols) {
@@ -79,15 +87,7 @@ class WinningPatternsTable {
 	startVerticalAnim() {
 		let xIdx = 1;
 		setInterval(() => {
-			// Clear all cells background first
-			const arrCells = this.elem.querySelectorAll('td');
-			let cellIdx = 0;
-			while (cellIdx < arrCells.length) {
-				if (arrCells[cellIdx].classList.contains('highlighted')) {
-					arrCells[cellIdx].classList.remove('highlighted');
-				}
-				cellIdx++;
-			}
+			this.clearTable();
 
 			let yIdx = 1;
 			while (yIdx <= this.rows) {
@@ -105,7 +105,46 @@ class WinningPatternsTable {
 	}
 
 	startDiagonallAnim() {
+		let count = 1;
+		setInterval(() => {
+			this.clearTable();
 
+			switch (count) {
+				case 1:
+					let leftDiagonalIdx = 1;
+					while (leftDiagonalIdx <= this.rows) {
+						const elCell = this.elem.querySelector(`#x${leftDiagonalIdx}y${leftDiagonalIdx}`);
+						elCell.classList.add('highlighted');
+						leftDiagonalIdx++;
+					}
+					break;
+				case 2:
+					let rightDiagonalIdx = 1;
+					while (rightDiagonalIdx <= this.rows) {
+						const elCell = this.elem.querySelector(`#x${this.rows + 1 - rightDiagonalIdx}y${rightDiagonalIdx}`);
+						elCell.classList.add('highlighted');
+						rightDiagonalIdx++;
+					}
+					break;
+				case 3:
+					let cornersIdx = 1;
+					const elTopLeft = this.elem.querySelector(`#x${cornersIdx}y${cornersIdx}`);
+					elTopLeft.classList.add('highlighted');
+
+					const elTopRight = this.elem.querySelector(`#x${this.rows + 1 - cornersIdx}y${cornersIdx}`);
+					elTopRight.classList.add('highlighted');
+
+					const elBottomLeft = this.elem.querySelector(`#x${cornersIdx}y${this.rows + 1 - cornersIdx}`);
+					elBottomLeft.classList.add('highlighted');
+
+					const elBottomRight = this.elem.querySelector(`#x${this.rows + 1 - cornersIdx}y${this.rows +1 - cornersIdx}`);
+					elBottomRight.classList.add('highlighted');
+					break;
+			}
+			count++;
+			if (count > 3)
+				count = 1;
+		}, 1000);
 	}
 }
 
