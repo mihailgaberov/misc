@@ -14,8 +14,14 @@ function diff21(n) {
   return n > 21 ? diff * 2 : diff;
 }
 
+function parrotTrouble(talking, hour) {
+  return !!(talking && ((hour < 7 && hour >= 0) || (hour > 20 && hour <= 23)));
+
+}
+
 module.exports = {
   add: add,
   substract: substract,
-  diff21: diff21
+  diff21: diff21,
+  parrotTrouble: parrotTrouble
 };

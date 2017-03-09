@@ -32,4 +32,39 @@ describe('Numbers calculator', function() {
     res = calc.diff21(-7);
     assert.equal(res, 28);
   });
+
+  it('should calculate when we are in trouble. ' +
+    'We are in trouble if the parrot is talking and the hour is before 7 or after 20.' +
+    'The "hour" parameter is the current hour time in the range 0..23. ' +
+    ' Return True if we are in trouble. ', function() {
+    var res = calc.parrotTrouble(true, 6);
+    assert.equal(res, true);
+
+    res = calc.parrotTrouble(true, 7);
+    assert.equal(res, false);
+
+    res = calc.parrotTrouble(false, 6);
+    assert.equal(res, false);
+
+    res = calc.parrotTrouble(true, 21);
+    assert.equal(res, true);
+
+    res = calc.parrotTrouble(false, 21);
+    assert.equal(res, false);
+
+    res = calc.parrotTrouble(false, 20);
+    assert.equal(res, false);
+
+    res = calc.parrotTrouble(true, 23);
+    assert.equal(res, true);
+
+    res = calc.parrotTrouble(false, 23);
+    assert.equal(res, false);
+
+    res = calc.parrotTrouble(true, 20);
+    assert.equal(res, false);
+
+    res = calc.parrotTrouble(false, 12);
+    assert.equal(res, false);
+  });
 });
