@@ -15,7 +15,21 @@ describe('Numbers calculator', function() {
     assert.equal(res, 3);
   });
 
-  it('should return the absolute difference between n and 21 when given int n, except return double the absolute difference if n is over 21.', function() {
+  it('should return the absolute difference between n and 21 when given int n, ' +
+    'except return double the absolute difference if n is over 21.', function() {
+    var res = calc.diff21(1);
+    assert.equal(res, 20);
 
+    res = calc.diff21(21);
+    assert.equal(res, 0);
+
+    res = calc.diff21(31);
+    assert.equal(res, 20);
+
+    res = calc.diff21(0);
+    assert.equal(res, 21);
+
+    res = calc.diff21(-7);
+    assert.equal(res, 28);
   });
 });
