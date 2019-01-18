@@ -1,4 +1,4 @@
-# Bangup class
+# :fire: Bangup class  :fire:
 A simple es6 class for piling a sum of an imaginable prize. Mostly used in gambling games.
 
 ![Screenshot](https://github.com/mihailgaberov/misc/blob/master/bangup-numbers/screenshot.png)
