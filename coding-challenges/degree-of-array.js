@@ -102,7 +102,7 @@ function findShortestSubArray(nums) {
     }
   }
 
-  return numsMap.get(whichDegree)[ numsMap.get(whichDegree).length - 1 ] - numsMap.get(whichDegree)[ 0 ] + 1
+  return numsMap.get(whichDegree)[numsMap.get(whichDegree).length - 1 ] - numsMap.get(whichDegree)[0] + 1
 }
 
 console.log(findShortestSubArray([1, 2, 2, 3, 1])) // 2
