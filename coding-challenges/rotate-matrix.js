@@ -1,3 +1,12 @@
+/* OLD
+const flipMatrix = matrix => (
+  matrix[0].map((column, index) => (
+    matrix.map(row => row[index])
+  ))
+);
+*/
+
+
 const compose = (a, b) => x => a(b(x));
 const reverse = array => [...array].reverse();
 
