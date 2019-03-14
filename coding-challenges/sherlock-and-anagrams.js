@@ -5,7 +5,6 @@
  For example s = mom, the list of all anagrammatic pairs is [m,m], [mo,om]  at positions
  [0,2] , [[0,1] , [1,2]]respectively.
 */
-
 function isAnagram(str1, str2) {
   const hist = {}
 
@@ -31,7 +30,7 @@ function isAnagram(str1, str2) {
 }
 
 function getAllSubstrings(str) {
-  var i, j, result = []
+  let i, j, result = [];
 
   for (i = 0; i < str.length; i++) {
     for (j = i + 1; j < str.length + 1; j++) {
@@ -41,7 +40,7 @@ function getAllSubstrings(str) {
   return result
 }
 
-function checkForAnagrams(currentIndex, arr) {
+function countAnagrams(currentIndex, arr) {
   const currentElement = arr[currentIndex]
   const arrRest = arr.slice(currentIndex + 1)
   let counter = 0
@@ -52,7 +51,7 @@ function checkForAnagrams(currentIndex, arr) {
   for (let i = 0; i < arrRest.length; i++) {
 
     if (currentElement.length === arrRest[i].length && isAnagram(currentElement, arrRest[i])) {
-      console.log('currentElement: ', currentElement, ' arrRest:', arrRest[i])
+      // console.log('currentElement: ', currentElement, ' arrRest:', arrRest[i])
       counter++
     }
   }
@@ -63,8 +62,6 @@ function checkForAnagrams(currentIndex, arr) {
   return counter
 }
 
-
-
 function sherlockAndAnagrams(s) {
   const duplicatesCount = s.split('').filter((v, i) => s.indexOf(v) !== i).length
   if (!duplicatesCount) return 0
@@ -74,10 +71,7 @@ function sherlockAndAnagrams(s) {
 
 
   for (let i = 0; i < arr.length; i++) {
-
-    // const currentElement = arr[i]
-    // console.log('curr: ', currentElement)
-    anagramsCount += checkForAnagrams(i, arr)
+    anagramsCount += countAnagrams(i, arr)
   }
 
   return anagramsCount;
