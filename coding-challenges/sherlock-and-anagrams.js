@@ -41,28 +41,43 @@ function getAllSubstrings(str) {
   return result
 }
 
+function checkForAnagrams(currentIndex, arr) {
+  const currentElement = arr[currentIndex]
+  const arrRest = arr.slice(currentIndex + 1)
+  let counter = 0
+
+  // console.log('>>> currentElement', currentElement)
+  // console.log('>>> arrRest', arrRest)
+
+  for (let i = 0; i < arrRest.length; i++) {
+
+    if (currentElement.length === arrRest[i].length && isAnagram(currentElement, arrRest[i])) {
+      console.log('currentElement: ', currentElement, ' arrRest:', arrRest[i])
+      counter++
+    }
+  }
+
+  // console.log('arrREst:' , arrRest)
+  // console.log('currentElement: ', currentElement, ' counter:', counter)
+
+  return counter
+}
+
 
 
 function sherlockAndAnagrams(s) {
   const duplicatesCount = s.split('').filter((v, i) => s.indexOf(v) !== i).length
   if (!duplicatesCount) return 0
 
-  const anagramsCount = 0
-
-
+  let anagramsCount = 0
   const arr = getAllSubstrings(s)
 
-  console.log(arr)
 
   for (let i = 0; i < arr.length; i++) {
-    const currentElement = arr[i]
+
+    // const currentElement = arr[i]
     // console.log('curr: ', currentElement)
-
-
-    for (let j = i; j < arr.length; j++) {
-      const otherElement = arr[j]
-      // console.log('other: ', otherElement)
-    }
+    anagramsCount += checkForAnagrams(i, arr)
   }
 
   return anagramsCount;
@@ -70,8 +85,8 @@ function sherlockAndAnagrams(s) {
 
 
 console.log(sherlockAndAnagrams('mom')) // 2
-// console.log(sherlockAndAnagrams('abba')) // 4
-// console.log(sherlockAndAnagrams('abcd')) // 0
-// console.log(sherlockAndAnagrams('ifailuhkqq')) // 3 -> [i, i], [q, q] and [0,1,2],[1,2,3]
-// console.log(sherlockAndAnagrams('kkkk')) // 10
-// console.log(sherlockAndAnagrams('cdcd')) // 5 -> c,c d,d cd,dc cd,cd dc,cd
+console.log(sherlockAndAnagrams('abba')) // 4
+console.log(sherlockAndAnagrams('abcd')) // 0
+console.log(sherlockAndAnagrams('ifailuhkqq')) // 3 -> [i, i], [q, q] and [0,1,2],[1,2,3]
+console.log(sherlockAndAnagrams('kkkk')) // 10
+console.log(sherlockAndAnagrams('cdcd')) // 5 -> c,c d,d cd,dc cd,cd dc,cd
