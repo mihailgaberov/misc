@@ -17,9 +17,10 @@ function isAnagram(str1, str2) {
       hist[char] = 1
     }
   }
+
   for (let j = 0; j < str2.length; j++) {
     const char = str2[j]
-    if (char in hist) {
+    if (hist[char]) {
       hist[char]--
     } else {
       return false
@@ -63,11 +64,13 @@ function sherlockAndAnagrams(s) {
 }
 
 
-console.log(sherlockAndAnagrams('abba')) // 4
+/*console.log(sherlockAndAnagrams('abba')) // 4
 console.log(sherlockAndAnagrams('abcd')) // 0
 console.log(sherlockAndAnagrams('ifailuhkqq')) // 3 -> [i, i], [q, q] and [0,1,2],[1,2,3]
 console.log(sherlockAndAnagrams('kkkk')) // 10
-console.log(sherlockAndAnagrams('cdcd')) // 5 -> c,c d,d cd,dc cd,cd dc,cd
+console.log(sherlockAndAnagrams('cdcd')) // 5 -> c,c d,d cd,dc cd,cd dc,cd*/
+
+console.log(isAnagram('ab', 'bb'))
 
 
 
