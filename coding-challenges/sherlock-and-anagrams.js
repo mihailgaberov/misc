@@ -41,36 +41,37 @@ function getAllSubstrings(str) {
   return result
 }
 
+
+
 function sherlockAndAnagrams(s) {
   const duplicatesCount = s.split('').filter((v, i) => s.indexOf(v) !== i).length
   if (!duplicatesCount) return 0
 
-  const arr = getAllSubstrings(s)
-  let anagramsCount = 0
+  const anagramsCount = 0
 
-  // console.log(arr)
+
+  const arr = getAllSubstrings(s)
+
+  console.log(arr)
 
   for (let i = 0; i < arr.length; i++) {
-    const fromBeginning = arr[i]
-    const fromEnd = arr[arr.length - 1 - i]
+    const currentElement = arr[i]
+    // console.log('curr: ', currentElement)
 
-    if (fromBeginning.length === fromEnd.length && isAnagram(fromBeginning, fromEnd)) {
-      console.log('fromBeginning: ', fromBeginning)
-      console.log('fromEnd: ', fromEnd)
-      anagramsCount++
+
+    for (let j = i; j < arr.length; j++) {
+      const otherElement = arr[j]
+      // console.log('other: ', otherElement)
     }
   }
-  return anagramsCount
+
+  return anagramsCount;
 }
 
 
-/*console.log(sherlockAndAnagrams('abba')) // 4
-console.log(sherlockAndAnagrams('abcd')) // 0
-console.log(sherlockAndAnagrams('ifailuhkqq')) // 3 -> [i, i], [q, q] and [0,1,2],[1,2,3]
-console.log(sherlockAndAnagrams('kkkk')) // 10
-console.log(sherlockAndAnagrams('cdcd')) // 5 -> c,c d,d cd,dc cd,cd dc,cd*/
-
-console.log(isAnagram('ab', 'bb'))
-
-
-
+console.log(sherlockAndAnagrams('mom')) // 2
+// console.log(sherlockAndAnagrams('abba')) // 4
+// console.log(sherlockAndAnagrams('abcd')) // 0
+// console.log(sherlockAndAnagrams('ifailuhkqq')) // 3 -> [i, i], [q, q] and [0,1,2],[1,2,3]
+// console.log(sherlockAndAnagrams('kkkk')) // 10
+// console.log(sherlockAndAnagrams('cdcd')) // 5 -> c,c d,d cd,dc cd,cd dc,cd
