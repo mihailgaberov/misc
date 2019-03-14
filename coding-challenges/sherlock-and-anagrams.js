@@ -45,36 +45,28 @@ function countAnagrams(currentIndex, arr) {
   const arrRest = arr.slice(currentIndex + 1)
   let counter = 0
 
-  // console.log('>>> currentElement', currentElement)
-  // console.log('>>> arrRest', arrRest)
-
   for (let i = 0; i < arrRest.length; i++) {
-
     if (currentElement.length === arrRest[i].length && isAnagram(currentElement, arrRest[i])) {
-      // console.log('currentElement: ', currentElement, ' arrRest:', arrRest[i])
       counter++
     }
   }
-
-  // console.log('arrREst:' , arrRest)
-  // console.log('currentElement: ', currentElement, ' counter:', counter)
 
   return counter
 }
 
 function sherlockAndAnagrams(s) {
   const duplicatesCount = s.split('').filter((v, i) => s.indexOf(v) !== i).length
+
   if (!duplicatesCount) return 0
-
   let anagramsCount = 0
-  const arr = getAllSubstrings(s)
 
+  const arr = getAllSubstrings(s)
 
   for (let i = 0; i < arr.length; i++) {
     anagramsCount += countAnagrams(i, arr)
   }
 
-  return anagramsCount;
+  return anagramsCount
 }
 
 
