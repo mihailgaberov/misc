@@ -22,31 +22,55 @@ const isGeomProgression = memoize(function ([i, j, k, ratio]) {
   return (i * ratio === j && j * ratio === k)
 })
 
+function doTheHeavyLifting(arr, i, r) {
+  let count = 0
+  const first = arr[i]
+  const arrRest = arr.slice(i + 1)
+  let m = arrRest.length
+
+  while (m--) {
+    const second = arrRest[m]
+    const arrRestSecond = arrRest.slice(m + 1)
+    let n = arrRestSecond.length
+
+    while (n--) {
+      const third = arrRestSecond[n]
+      count += isGeomProgression(first, second, third, r)
+    }
+  }
+
+  return count
+}
+
 function countTriplets(arr, r) {
   let tripletsCount = 0
-  let l = arr.length
 
   console.time('out')
-  while (l--) {
-    const first = arr[l]
-    const arrRest = arr.slice(l + 1)
-    let m = arrRest.length
+  // Duff's Device - credit: Jeff Greenberg
+  let iterations = arr.length % 8;
+  let i = arr.length - 1;
 
-    while (m--) {
-      const second = arrRest[m]
-      const arrRestSecond = arrRest.slice(m + 1)
-      let n = arrRestSecond.length
+  while (iterations) {
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    iterations--;
+  }
 
-      while (n--) {
-        const third = arrRestSecond[n]
-        tripletsCount += isGeomProgression(first, second, third, r)
-      }
-    }
+  iterations = Math.floor(arr.length / 8);
+
+  while (iterations) {
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    tripletsCount += doTheHeavyLifting(arr, i--, r)
+    iterations--;
   }
   console.timeEnd('out')
   return tripletsCount
 }
-
 
 console.log(countTriplets([1, 4, 16, 64], 4)) // 2
 console.log(countTriplets([1, 2, 2, 4], 2)) // 2
