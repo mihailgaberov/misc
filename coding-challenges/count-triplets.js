@@ -2,6 +2,7 @@
 
 For example, arr=[1,4,16,64]. If r=4, we have [1,4,16] and [4,16,64] at indices (0,1,2) and (1,2,3).
 */
+/*
 const memoize = (fn) => {
   let cache = {};
   return (...args) => {
@@ -70,6 +71,51 @@ function countTriplets(arr, r) {
   }
   console.timeEnd('out')
   return tripletsCount
+}
+
+console.log(countTriplets([1, 4, 16, 64], 4)) // 2
+console.log(countTriplets([1, 2, 2, 4], 2)) // 2
+console.log(countTriplets([1, 3, 9, 9, 27, 81], 3)) // 6
+console.log(countTriplets([1, 5, 5, 25, 125], 5)) // 4
+console.log(countTriplets([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 1)) // 161700
+console.log(countTriplets([1, 1, 1, 1], 1)) // 4
+*/
+
+/*
+static long countTriplets(List<Long> arr, long r) {
+  Map<Long, Long> t2 = new HashMap<>();
+  Map<Long, Long> t3 = new HashMap<>();
+  long result = 0L;
+
+  for(Long a : arr) {
+    result += t3.getOrDefault(a, 0L);
+    if (t2.containsKey(a)){
+      t3.put(a*r, t3.getOrDefault(a*r, 0L) + t2.get(a));
+    }
+    t2.put(a*r, t2.getOrDefault(a*r, 0L) + 1);
+  }
+  return result;
+}*/
+
+// Much faster version using default dict data structures
+const defaultDictFactory = () => (new Proxy({}, {
+  get: (target, name) => name in target ? target[name] : 0
+}))
+
+function countTriplets(arr, r) {
+  let v2 = defaultDictFactory()
+  let v3 = defaultDictFactory()
+
+  let count = 0
+
+  for (let i = 0, len = arr.length; i < len; i++) {
+    const el = arr[i]
+    count += v3[el]
+    v3[el * r] += v2[el]
+    v2[el * r] += 1
+  }
+
+  return count
 }
 
 console.log(countTriplets([1, 4, 16, 64], 4)) // 2
