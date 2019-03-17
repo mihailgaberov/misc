@@ -23,29 +23,28 @@ const isGeomProgression = memoize(function ([i, j, k, ratio]) {
 })
 
 function countTriplets(arr, r) {
-  let l = 0
-  let count = 0
+  let tripletsCount = 0
+  let l = arr.length
 
-  while (l < arr.length) {
+  console.time('out')
+  while (l--) {
     const first = arr[l]
     const arrRest = arr.slice(l + 1)
-    let m = 0
-    while (m < arrRest.length) {
+    let m = arrRest.length
+
+    while (m--) {
       const second = arrRest[m]
       const arrRestSecond = arrRest.slice(m + 1)
-      let n = 0
-      while (n < arrRestSecond.length) {
+      let n = arrRestSecond.length
+
+      while (n--) {
         const third = arrRestSecond[n]
-        count += isGeomProgression(first, second, third, r)
-        n++
+        tripletsCount += isGeomProgression(first, second, third, r)
       }
-      m++
     }
-    l++
   }
-
-
-  return count
+  console.timeEnd('out')
+  return tripletsCount
 }
 
 
