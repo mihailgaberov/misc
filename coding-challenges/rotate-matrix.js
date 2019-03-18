@@ -23,7 +23,7 @@ const pluck = (index, data) => map(get(index), data)
 // `rangeFrom` creates an array equal in length to the array provided,
 // but with a 0-based range for values.
 // eg. ['a', 'b', 'c'] -> [0, 1, 2]
-const rangeFrom = ({length}) => [...Array(length).keys()]
+const rangeFrom = ({ length }) => [...Array(length).keys()]
 
 
 const flipMatrix = matrix => (
@@ -46,7 +46,7 @@ console.log('flip counter clock', flipMatrixCounterClockwise([
   [7, 8, 9]
 ]))
 
-console.log('rotate counter clock',rotateMatrixCounterClockwise([
+console.log('rotate counter clock', rotateMatrixCounterClockwise([
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9]
