@@ -6,7 +6,7 @@ function countingValleys(n, s) {
 
   for (let idx in s) {
     if (s.hasOwnProperty(idx)) {
-      const char = s[ idx ]
+      const char = s[idx]
 
       if (char === 'D' && seaLevel === 0) {
         valleysCount++
