@@ -34,12 +34,12 @@ The shortest length is 2. So return 2.
 
 function getDegree(arr) {
   const elementsCountMap = arr.reduce((acc, curr) => {
-    acc[ curr ] = (acc[ curr ] ? ++acc[ curr ] : 1)
+    acc[curr] = (acc[curr] ? ++acc[curr] : 1)
     return acc
   }, {})
 
-  const mostFrequentElement = Object.keys(elementsCountMap).reduce((a, b) => elementsCountMap[ a ] > elementsCountMap[ b ] ? a : b, 0)
-  return elementsCountMap[ mostFrequentElement ]
+  const mostFrequentElement = Object.keys(elementsCountMap).reduce((a, b) => elementsCountMap[a] > elementsCountMap[b] ? a : b, 0)
+  return elementsCountMap[mostFrequentElement]
 }
 
 // Degree of an array
@@ -102,7 +102,7 @@ function findShortestSubArray(nums) {
     }
   }
 
-  return numsMap.get(whichDegree)[numsMap.get(whichDegree).length - 1 ] - numsMap.get(whichDegree)[0] + 1
+  return numsMap.get(whichDegree)[numsMap.get(whichDegree).length - 1] - numsMap.get(whichDegree)[0] + 1
 }
 
 console.log(findShortestSubArray([1, 2, 2, 3, 1])) // 2
