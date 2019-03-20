@@ -8,6 +8,7 @@
 * */
 
 function isValid(s) {
+  console.log('------------------')
   console.log('input string: ', s)
   const charsMap = {}
 
@@ -26,6 +27,8 @@ function isValid(s) {
   console.log('frequencies: ', frequencies)
   const allEqual = frequencies.every(v => v === frequencies[0])
 
+  if (allEqual) return 'YES'
+
   const highestFrequency = Math.max(...frequencies)
   console.log('highest frequency: ', highestFrequency)
   const lowestFrequency = Math.min(...frequencies)
@@ -36,13 +39,18 @@ function isValid(s) {
   console.log('how many mins: ', countMins)
   console.log('how many maxes: ', countMaxes)
 
+  if (lowestFrequency + 1 >= highestFrequency) {
+    return 'YES'
+  }
+
+  return 'NO'
 }
 
 console.log(isValid('abc')) // YES
 console.log(isValid('aabbc')) // YES
 console.log(isValid('aaaabbcc')) // NO
-// console.log(isValid('abccbaasdqweopijdfakljdfaskljd')) // YES
-// console.log(isValid('abcc')) // YES
-// console.log(isValid('aabbcd')) // NO
-// console.log(isValid('aabbccddeefghi')) // NO
-// console.log(isValid('abcdefghhgfedecba')) // YES
+console.log(isValid('abccbaasdqweopijdfakljdfaskljd')) // YES
+console.log(isValid('abcc')) // YES
+console.log(isValid('aabbcd')) // NO
+console.log(isValid('aabbccddeefghi')) // NO
+console.log(isValid('abcdefghhgfedecba')) // YES
