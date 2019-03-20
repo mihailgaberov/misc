@@ -8,7 +8,7 @@
 * */
 
 function isValid(s) {
-  console.log('zi string: ', s)
+  console.log('input string: ', s)
   const charsMap = {}
 
   for (let i = 0, len = s.length; i < len; i++) {
@@ -20,29 +20,22 @@ function isValid(s) {
     }
   }
 
-  const repeats = []
-  Object.entries(charsMap).forEach(e => repeats.push(e[1]))
-  console.log('repeats: ', repeats)
-  const allEqual = repeats.every(v => v === repeats[0])
+  const frequencies = []
+  Object.entries(charsMap).forEach(e => frequencies.push(e[1]))
+  console.log('map:  ', charsMap)
+  console.log('frequencies: ', frequencies)
+  const allEqual = frequencies.every(v => v === frequencies[0])
 
-  const maxRepeats = Math.max(...repeats)
-  console.log('max num of repeats: ', maxRepeats)
-  const minRepeats = Math.min(...repeats)
-  console.log('min num of repeats: ', minRepeats)
-  const countMin = repeats.filter(function (x) { return x === minRepeats }).length
-  console.log('count of min`s:', repeats.filter(function (x) { return x === minRepeats }).length)
-  const countMax = repeats.filter(function (x) {
-    return x === maxRepeats
-  }).length
-  console.log('count of max`s:', repeats.filter(function (x) {
-    return x === maxRepeats
-  }).length)
+  const highestFrequency = Math.max(...frequencies)
+  console.log('highest frequency: ', highestFrequency)
+  const lowestFrequency = Math.min(...frequencies)
+  console.log('lowest frequency: ', lowestFrequency)
+  const countMins = frequencies.filter((x) => { return x === lowestFrequency}).length
+  const countMaxes = frequencies.filter((x) => { return x === highestFrequency}).length
 
-  if (allEqual || countMax === 1 && maxRepeats % minRepeats !== 0) {
-    return 'YES'
-  }
+  console.log('how many mins: ', countMins)
+  console.log('how many maxes: ', countMaxes)
 
-  return 'NO'
 }
 
 console.log(isValid('abc')) // YES
