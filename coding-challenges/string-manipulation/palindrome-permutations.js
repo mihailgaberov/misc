@@ -39,7 +39,7 @@ function couldThisBeAPalindrome(str) {
   // Iterate over all of the occurrences and check if they are even
   //
   // .log('occurences: ', occurrences)
-  res = occurrences.every(e => e % 2 === 0 || e === 1)
+  res = occurrences.every(e => !(e & 1) || e === 1) // e & 1 === 0 ? even : odd
 
   // Check if all occurrences are one, e.g. bca ==> 1 1 1 => not valid
   res = !(occurrences.every(e => e === 1) && occurrences.length > 1)
