@@ -4,7 +4,7 @@ function getConsecutiveOnes(decimal) {
   let ones = 0
   let highestCountOfOnes = 0
 
-  while(decimal > 0) {
+  while (decimal > 0) {
     binary.push(decimal % 2)
     decimal = Math.floor(decimal / 2)
   }
@@ -19,7 +19,7 @@ function getConsecutiveOnes(decimal) {
       ones = 0
     }
 
-    if(ones > highestCountOfOnes) {
+    if (ones > highestCountOfOnes) {
       highestCountOfOnes = ones
     }
 
