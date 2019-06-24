@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Training Cache</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1>This is the home page</h1>
+<img src="image002.png" alt="image" />
+<a href="post1.html">Navigate to the first post</a>
+
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then(registration => {
+            console.log('sw registration successful', registration)
+        })
+            .catch(err => console.log('service worker registration failed', err))
+    }
+</script>
+</body>
+</html>
