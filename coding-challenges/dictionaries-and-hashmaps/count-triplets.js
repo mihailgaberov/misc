@@ -98,9 +98,11 @@ static long countTriplets(List<Long> arr, long r) {
 }*/
 
 // Much faster version using default dict data structures
-const defaultDictFactory = () => (new Proxy({}, {
-  get: (target, name) => name in target ? target[name] : 0
-}))
+const defaultDictFactory = () => (
+  new Proxy({}, {
+    get: (target, name) => name in target ? target[name] : 0
+  })
+)
 
 function countTriplets(arr, r) {
   let v2 = defaultDictFactory()
