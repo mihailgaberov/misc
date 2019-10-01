@@ -4,8 +4,8 @@ import PubSub from 'pubsub-js'
 import { EventsConsts } from './events-consts'
 
 var mySpecificSubscriber = function (topic, data) {
-    console.log('subcribe handler topic: ', topic);
-    console.log('subcribe handler data: ', data);
+    console.log('subscribe handler topic: ', topic);
+    console.log('subscribe handler data: ', data);
 }
 
 
