@@ -6,6 +6,24 @@ const sampleInput = [
     [0, 0, 0, 2, 0, 0], 
     [0, 0, 1, 2, 4, 0]
 ]
+const sampleInput1 = [
+    [0, -4, -6, 0, -7, -6],
+    [-1, -2, -6, -8, -3, -1],
+    [-8, -4, -2, -8, -8, -6],
+    [-3, -1, -2, -5, -7, -4],
+    [-3, -5, -3, -6, -6, -6],
+    [-3, -6, 0, -8, -6, -7]
+]
+
+const sampleInput2 = [
+    [-1, -1, 0, -9, -2, -2],
+    [-2, -1, -6, -8, -2, -5],
+    [-1, -1, -1, -2, -3, -4],
+    [-1, -9, -2, -4, -4, -5],
+    [-7, -3, -3, -2, -9, -9],
+    [-1, -3, -1, -2, -4, -5]
+]
+
 const ROWS = 6
 const COLS = 6
 
@@ -23,6 +41,10 @@ const process = (input) => {
                         input[i + 2][j] +
                         input[i + 2][j + 1] +
                         input[i + 2][j + 2]
+
+            // Start with the first calculated sum
+            if (i === 0 && j === 0) maxSum = sum;
+
             maxSum = Math.max(maxSum, sum)
         }
     }
@@ -31,4 +53,6 @@ const process = (input) => {
 }
 
 
-console.log(process(sampleInput)) // 19
+// console.log(process(sampleInput)) // 19
+console.log(process(sampleInput1)) // -19
+console.log(process(sampleInput2)) // -6
