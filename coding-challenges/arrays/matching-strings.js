@@ -33,8 +33,6 @@ function matchingStrings(strings, queries) {
         }
     });
 
-    console.log('map: ', stringsMap)
-
     const res = []
     queries.forEach(el => {
         if (Object.keys(stringsMap).includes(el)) {
