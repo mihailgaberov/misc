@@ -35,32 +35,34 @@ const largeQueries = [ [ '1400906', '9889280', '90378' ],
 [ '3029150', '9434234', '46943' ] ]
 
 function arrayManipulation(n, queries) {
-    console.time('fill')
+    let max = 0;
     const arr = new Array(n).fill(0);
-    console.timeEnd()
 
-    console.time('st')
-    queries.forEach(el => {
-        const leftIdx = el[0]
-        const rightIdx = el[1]
-        const summand = el[2]
+    // for each sum operation in queries
+    for (let i = 0; i < queries.length; i++) {
+       // update arr with number to add at index=queries[i][0] and number to remove 
+       // at index=queries[i][0]+1 => this will allow us to build each element of
+       // the final array by summing all elements before it. The aim of this trick is to lower time complexity
+       console.log('q', queries[i][0] -1)
+        arr[queries[i][0]-1] += queries[i][2];
 
-        // for (let i = leftIdx - 1; i <= rightIdx - 1; i++) {
-        //     arr[i] += summand
-        // }
-    });
+        if (queries[i][1] < arr.length) {
+            arr[queries[i][1]] -= queries[i][2];
+        }
+    }
+
+    for (let j = 1; j < n; j++) {
+        arr[j] += arr[j-1];
+    }
+
+    for (let k = 0; k < arr.length; k++) {
+        max = Math.max(max, arr[k]);
+    }
     
-    // return Math.max(...arr)
-    arr.sort((a, b) => b - a)
-    const firstHalf = arr.slice(0, Math.floor(arr.length / 64))
-    const secondHalf = arr.slice(Math.floor(arr.length / 2), arr.length)
-    const res1 = Math.max(...firstHalf)
-    const res2 = Math.max(...secondHalf)
-    console.timeEnd('st')
-    return res1 > res2 ? res1 : res2
+    return max;
 }
 
-// console.log(arrayManipulation(arrSize, queries)) // 200
+console.log(arrayManipulation(arrSize, queries)) // 200
 
-console.log(arrayManipulation(largeInput, largeQueries))
+// console.log(arrayManipulation(largeInput, largeQueries))
 
