@@ -15,11 +15,7 @@ const getMatches = (...args) => {
     })
   })
 
-  return Object.keys(mapMatches).filter(e => {
-    if (mapMatches[e] === args.length) {
-      return e
-    }
-  })
+  return Object.keys(mapMatches).filter(e => (mapMatches[e] === args.length ? e : undefined))
 }
 
 
