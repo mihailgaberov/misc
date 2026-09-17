@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.5",
-    "express": "^4.22.2"
+    "body-parser": "^1.20.8",
+    "express": "^4.22.3"
   }
 }
