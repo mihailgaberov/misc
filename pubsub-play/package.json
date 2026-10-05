@@ -8,7 +8,7 @@
     "start": "http-server"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.29.6",
     "babel-cli": "^6.24.0",
     "babel-preset-env": "^1.2.1",
     "babelify": "^10.0.0",
